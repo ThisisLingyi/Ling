@@ -33,11 +33,17 @@
     .footer{ flex-direction:column !important; gap:6px !important; padding:24px 20px !important; }
   }
   .readout-cols{ display:flex; align-items:stretch; justify-content:center; }
+  .relay-row{ display:flex; align-items:stretch; gap:14px; position:relative; }
+  .relay-track{ position:absolute; left:8px; right:8px; top:38px; border-top:2px dashed #cfe0cb; z-index:0; }
   @media (max-width:900px){
     .readout-cols{ flex-direction:column; align-items:stretch; }
     .readout-arrow{ width:100% !important; height:36px !important; }
     .readout-arrow > span{ display:inline-block; transform:rotate(90deg); }
     .readout-col{ max-width:none !important; }
+    .relay-row{ flex-direction:column; }
+    .relay-track{ display:none; }
+    .relay-card{ max-width:none !important; }
+    .relay-gap{ width:100% !important; padding:8px 0 !important; }
   }
 </style>
 <script src="./image-slot.js"></script>
@@ -121,20 +127,81 @@
     <figcaption style="font-size:14px; line-height:1.6; color:#6b6b6b; margin-top:20px;">The Sponsor buys a vision, the Architect draws a map, the Doer digs the trench, the Guardian watches the meter, and the Operator waits for the water. The primary failure point is the <strong style="color:#242424;">Implementation Gap</strong>, where business intent collides with messy, legacy reality.</figcaption>
   </figure>
 
-  <article class="body-copy" style="max-width:680px; margin:0 auto;">
-    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; margin:0 0 8px;">Five personas in the relay</h2>
-    <p style="font-size:16px !important; color:#6b6b6b !important;">Each persona sits at a different point on the trust curve, no single automation setting serves them all.</p>
-  </article>
-
-  <div style="max-width:820px; margin:0 auto; padding:12px 24px 0;">
-    <div class="grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Sponsor</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Outcome Owner</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I don’t care how the data gets here, as long as we pass the audit and save money.”</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a; margin-top:14px;">AI trust: <span style="color:#46803e;">High</span> (ROI modeling)</div></div>
-      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Architect</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Blueprint Designer</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I build the patterns so the engineers don’t reinvent the wheel.”</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a; margin-top:14px;">AI trust: <span style="color:#46803e;">Low</span> (needs logic &amp; transparency)</div></div>
-      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Doer</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Trench Digger</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I’m doing registry surgery at 2 a.m. because the installer broke.”</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a; margin-top:14px;">AI trust: <span style="color:#46803e;">Medium</span> (needs review)</div></div>
-      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Guardian</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Budget Watchdog</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“Windows logs are 90% junk. I’m not paying to index Microsoft’s fluff.”</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a; margin-top:14px;">AI trust: <span style="color:#46803e;">Low</span> (cost &amp; privacy)</div></div>
-      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px; grid-column:1 / -1;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Operator</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The First Responder</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I only care about the platform when the application is down.”</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a; margin-top:14px;">AI trust: <span style="color:#46803e;">High</span> (speed &amp; summarization)</div></div>
+  <figure data-om-raster="true" style="max-width:1200px; margin:56px auto 0; padding:0 24px;">
+    <div style="margin-bottom:26px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#46803e; margin-bottom:10px;">Job performers · Relay race</div>
+      <h2 style="font-family:'Newsreader',serif; font-weight:400; font-size:30px; line-height:1.2; margin:0 0 8px;">Five personas. One onboarding system. No single AI setting fits all.</h2>
+      <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.03em; color:#8a8a8a; margin:0;">Each card = handoff position · success metric · conditional AI trust</p>
     </div>
-  </div>
+    <div class="relay-row">
+      <div class="relay-track"></div>
+      <div class="relay-card" style="flex:1 1 0; max-width:230px; position:relative; z-index:1; background:#fff; border:1px solid #e6e6e6; border-radius:12px; overflow:hidden; display:flex; flex-direction:column;">
+        <div style="height:5px; background:#46803e;"></div>
+        <div style="padding:16px 16px 18px; display:flex; flex-direction:column; flex:1;">
+          <div style="width:30px; height:30px; border-radius:50%; background:#242424; color:#fff; font-family:'Space Mono',monospace; font-size:13px; display:flex; align-items:center; justify-content:center; margin-bottom:12px;">1</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:4px;">The Sponsor</div>
+          <div style="font-family:'Newsreader',serif; font-size:18px; line-height:1.15; color:#242424; margin-bottom:10px;">The Outcome Owner</div>
+          <p style="font-family:'Newsreader',serif; font-style:italic; font-size:14px; line-height:1.4; color:#444; margin:0 0 14px;">“I don’t care how the data gets here, as long as we pass the audit and save money.”</p>
+          <div style="flex:1;"></div>
+          <div style="border-top:1px solid #eee; padding-top:12px;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a;">Success metric</div><div style="font-size:13px; color:#242424; margin-top:2px;">ROI / compliance</div></div>
+          <div style="margin-top:12px;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a;">AI trust</div><div style="display:flex; gap:4px; margin:8px 0 6px;"><span style="flex:1; height:6px; border-radius:3px; background:#46803e;"></span><span style="flex:1; height:6px; border-radius:3px; background:#46803e;"></span><span style="flex:1; height:6px; border-radius:3px; background:#46803e;"></span></div><div style="font-size:12px; color:#242424;">High <span style="color:#8a8a8a;">(ROI modeling)</span></div></div>
+          <div style="margin-top:14px; font-size:12px; color:#46803e; font-weight:500;">→ Hands off to Architect</div>
+        </div>
+      </div>
+      <div class="relay-card" style="flex:1 1 0; max-width:230px; position:relative; z-index:1; background:#fff; border:1px solid #e6e6e6; border-radius:12px; overflow:hidden; display:flex; flex-direction:column;">
+        <div style="height:5px; background:#46803e;"></div>
+        <div style="padding:16px 16px 18px; display:flex; flex-direction:column; flex:1;">
+          <div style="width:30px; height:30px; border-radius:50%; background:#242424; color:#fff; font-family:'Space Mono',monospace; font-size:13px; display:flex; align-items:center; justify-content:center; margin-bottom:12px;">2</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:4px;">The Architect</div>
+          <div style="font-family:'Newsreader',serif; font-size:18px; line-height:1.15; color:#242424; margin-bottom:10px;">The Blueprint Designer</div>
+          <p style="font-family:'Newsreader',serif; font-style:italic; font-size:14px; line-height:1.4; color:#444; margin:0 0 14px;">“I build the patterns so the engineers don’t reinvent the wheel.”</p>
+          <div style="flex:1;"></div>
+          <div style="border-top:1px solid #eee; padding-top:12px;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a;">Success metric</div><div style="font-size:13px; color:#242424; margin-top:2px;">Reusable patterns</div></div>
+          <div style="margin-top:12px;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a;">AI trust</div><div style="display:flex; gap:4px; margin:8px 0 6px;"><span style="flex:1; height:6px; border-radius:3px; background:#46803e;"></span><span style="flex:1; height:6px; border-radius:3px; background:#e6e6e6;"></span><span style="flex:1; height:6px; border-radius:3px; background:#e6e6e6;"></span></div><div style="font-size:12px; color:#242424;">Low <span style="color:#8a8a8a;">(logic &amp; transparency)</span></div></div>
+          <div style="margin-top:14px; font-size:12px; color:#46803e; font-weight:500;">→ Hands off to Doer</div>
+        </div>
+      </div>
+      <div class="relay-card" style="flex:1 1 0; max-width:230px; position:relative; z-index:1; background:#fff; border:1px solid #e6e6e6; border-radius:12px; overflow:hidden; display:flex; flex-direction:column;">
+        <div style="height:5px; background:#46803e;"></div>
+        <div style="padding:16px 16px 18px; display:flex; flex-direction:column; flex:1;">
+          <div style="width:30px; height:30px; border-radius:50%; background:#242424; color:#fff; font-family:'Space Mono',monospace; font-size:13px; display:flex; align-items:center; justify-content:center; margin-bottom:12px;">3</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:4px;">The Doer</div>
+          <div style="font-family:'Newsreader',serif; font-size:18px; line-height:1.15; color:#242424; margin-bottom:10px;">The Trench Digger</div>
+          <p style="font-family:'Newsreader',serif; font-style:italic; font-size:14px; line-height:1.4; color:#444; margin:0 0 14px;">“I’m doing registry surgery at 2 a.m. because the installer broke.”</p>
+          <div style="flex:1;"></div>
+          <div style="border-top:1px solid #eee; padding-top:12px;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a;">Success metric</div><div style="font-size:13px; color:#242424; margin-top:2px;">Data in; tickets closed</div></div>
+          <div style="margin-top:12px;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a;">AI trust</div><div style="display:flex; gap:4px; margin:8px 0 6px;"><span style="flex:1; height:6px; border-radius:3px; background:#46803e;"></span><span style="flex:1; height:6px; border-radius:3px; background:#46803e;"></span><span style="flex:1; height:6px; border-radius:3px; background:#e6e6e6;"></span></div><div style="font-size:12px; color:#242424;">Medium <span style="color:#8a8a8a;">(needs review)</span></div></div>
+          <div style="margin-top:14px; font-size:12px; color:#46803e; font-weight:500;">→ Hands off to Guardian</div>
+        </div>
+      </div>
+      <div class="relay-card" style="flex:1 1 0; max-width:230px; position:relative; z-index:1; background:#fff; border:1px solid #e6e6e6; border-radius:12px; overflow:hidden; display:flex; flex-direction:column;">
+        <div style="height:5px; background:#46803e;"></div>
+        <div style="padding:16px 16px 18px; display:flex; flex-direction:column; flex:1;">
+          <div style="width:30px; height:30px; border-radius:50%; background:#242424; color:#fff; font-family:'Space Mono',monospace; font-size:13px; display:flex; align-items:center; justify-content:center; margin-bottom:12px;">4</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:4px;">The Guardian</div>
+          <div style="font-family:'Newsreader',serif; font-size:18px; line-height:1.15; color:#242424; margin-bottom:10px;">The Budget Watchdog</div>
+          <p style="font-family:'Newsreader',serif; font-style:italic; font-size:14px; line-height:1.4; color:#444; margin:0 0 14px;">“Windows logs are 90% junk. I’m not paying to index Microsoft’s fluff.”</p>
+          <div style="flex:1;"></div>
+          <div style="border-top:1px solid #eee; padding-top:12px;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a;">Success metric</div><div style="font-size:13px; color:#242424; margin-top:2px;">Low ingestion cost</div></div>
+          <div style="margin-top:12px;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a;">AI trust</div><div style="display:flex; gap:4px; margin:8px 0 6px;"><span style="flex:1; height:6px; border-radius:3px; background:#46803e;"></span><span style="flex:1; height:6px; border-radius:3px; background:#e6e6e6;"></span><span style="flex:1; height:6px; border-radius:3px; background:#e6e6e6;"></span></div><div style="font-size:12px; color:#242424;">Low <span style="color:#8a8a8a;">(cost &amp; privacy)</span></div></div>
+          <div style="margin-top:14px; font-size:12px; color:#46803e; font-weight:500;">→ Hands off to Operator</div>
+        </div>
+      </div>
+      <div class="relay-card" style="flex:1 1 0; max-width:230px; position:relative; z-index:1; background:#fff; border:1px solid #e6e6e6; border-radius:12px; overflow:hidden; display:flex; flex-direction:column;">
+        <div style="height:5px; background:#46803e;"></div>
+        <div style="padding:16px 16px 18px; display:flex; flex-direction:column; flex:1;">
+          <div style="width:30px; height:30px; border-radius:50%; background:#242424; color:#fff; font-family:'Space Mono',monospace; font-size:13px; display:flex; align-items:center; justify-content:center; margin-bottom:12px;">5</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:4px;">The Operator</div>
+          <div style="font-family:'Newsreader',serif; font-size:18px; line-height:1.15; color:#242424; margin-bottom:10px;">The First Responder</div>
+          <p style="font-family:'Newsreader',serif; font-style:italic; font-size:14px; line-height:1.4; color:#444; margin:0 0 14px;">“I only care about the platform when the application is down.”</p>
+          <div style="flex:1;"></div>
+          <div style="border-top:1px solid #eee; padding-top:12px;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a;">Success metric</div><div style="font-size:13px; color:#242424; margin-top:2px;">Mean time to resolve</div></div>
+          <div style="margin-top:12px;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a;">AI trust</div><div style="display:flex; gap:4px; margin:8px 0 6px;"><span style="flex:1; height:6px; border-radius:3px; background:#46803e;"></span><span style="flex:1; height:6px; border-radius:3px; background:#46803e;"></span><span style="flex:1; height:6px; border-radius:3px; background:#46803e;"></span></div><div style="font-size:12px; color:#242424;">High <span style="color:#8a8a8a;">(speed &amp; summarization)</span></div></div>
+          <div style="margin-top:14px; font-size:12px; color:#8a8a8a; font-weight:500;">End of relay · runtime</div>
+        </div>
+      </div>
+    </div>
+  </figure>
 
   <figure style="max-width:820px; margin:56px auto; padding:0 24px;">
     <div class="quote-box" style="background:#46803e; color:#fff; border-radius:14px; padding:60px 56px; text-align:center;">

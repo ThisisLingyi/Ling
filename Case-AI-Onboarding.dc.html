@@ -9,8 +9,8 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
   *{ box-sizing:border-box; }
   body{ margin:0; background:#ffffff; color:#242424; -webkit-font-smoothing:antialiased; }
@@ -33,6 +33,7 @@
     .footer{ flex-direction:column !important; gap:6px !important; padding:24px 20px !important; }
   }
 </style>
+<script src="./image-slot.js"></script>
 </helmet>
 <div style="font-family:'Archivo',sans-serif;">
 <sc-if value="{{ locked }}" hint-placeholder-val="{{ true }}">
@@ -52,63 +53,79 @@
     <a href="Home.dc.html" style="display:flex; align-items:baseline; gap:11px; text-decoration:none;"><span style="font-family:'Newsreader',serif; font-weight:500; font-size:24px; color:#242424;">Lingyi Ge</span><span class="nav-role" style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a; font-weight:500;">Senior UX Researcher</span></a>
     <div class="nav-links" style="display:flex; gap:26px; align-items:center; font-size:14px; color:#6b6b6b;">
       <a href="Home.dc.html#work">Work</a><a href="Home.dc.html#about">About</a>
-      <a href="uploads/Lingyi_Ge_Senior_UXR_Resume_AI.docx.pdf" download target="_blank">Résumé</a>
+      <a href="uploads/Lingyi_Ge_Senior_UXR_Resume_AI.docx.pdf" download="" target="_blank">Résumé</a>
       <a href="mailto:lingyigee@gmail.com" style="background:transparent; color:#242424; border:1px solid #cfcfcf; padding:8px 18px; border-radius:100px; font-size:13px;">Get in touch</a>
     </div>
   </nav>
 
   <article style="max-width:760px; margin:0 auto; padding:64px 24px 40px;">
     <a href="Home.dc.html" style="font-size:13px; color:#46803e; letter-spacing:.02em;">← All work</a>
-    <div style="font-size:13px; color:#6b6b6b; margin:20px 0 14px;">Case study · Trust &amp; Automation</div>
+    <div style="font-size:13px; color:#6b6b6b; margin:20px 0 14px;">Case study · Trust &amp; Automation · Enterprise Data Platform</div>
     <h1 class="case-h1" style="font-family:'Newsreader',serif; font-weight:400; font-size:52px; line-height:1.12; letter-spacing:-.01em; margin:0 0 22px;">AI &amp; Guided Onboarding</h1>
-    <p style="font-family:'Newsreader',serif; font-weight:300; font-size:23px; line-height:1.5; color:#444; margin:0 0 28px;">How data admins onboard the right organizational data to the right destinations — and where an AI agent should, and shouldn’t, take the wheel.</p>
+    <p style="font-family:'Newsreader',serif; font-weight:300; font-size:23px; line-height:1.5; color:#444; margin:0 0 28px; max-width:640px;">How data admins onboard the right organizational data to the right destinations, and where AI should assist, review, or stay out of the way entirely.</p>
     <div style="display:flex; align-items:center; gap:12px; padding:20px 0; border-top:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6;">
       <div style="width:40px; height:40px; border-radius:50%; overflow:hidden;"><img src="uploads/headshot.jpg" alt="Lingyi Ge" style="width:100%; height:100%; object-fit:cover; object-position:center 20%; display:block;"></div>
-      <div style="font-size:14px; line-height:1.4;"><div>Lingyi Ge · <span style="color:#46803e;">Sole researcher, end-to-end</span></div><div style="color:#8a8a8a;">5 in-depth interviews · 6 min read</div></div>
+      <div style="font-size:14px; line-height:1.5;"><div>Lingyi Ge · <span style="color:#46803e;">Sole researcher, end-to-end — generative research + concept evaluation</span></div><div style="color:#8a8a8a;">5 in-depth interviews · 8 min read</div></div>
     </div>
   </article>
 
   <div style="max-width:960px; margin:0 auto; padding:0 24px 8px;">
     <figure style="margin:0;">
       <div style="border-radius:12px; overflow:hidden; border:1px solid #e6e6e6; background:#0b0c0e;"><img src="uploads/DOB-topology.png" alt="Data onboarding topology — recommended task list and pipeline diagram (Custom Data → Edge processor → Ingest processor → Indexer → Search Head)" style="display:block; width:100%; height:auto; filter:blur(3px);"></div>
-      <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Guided onboarding — task list paired with a live topology map of the data pipeline.</figcaption>
+      <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Guided onboarding prototype: task flow paired with a pipeline topology concept.</figcaption>
     </figure>
   </div>
 
   <article class="body-copy" style="max-width:680px; margin:0 auto; padding:52px 24px 0;">
     <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; margin:0 0 20px;">The brief</h2>
-    <p>We had a guided-onboarding MVP in alpha. The question for GA was blunt: how much of this journey can an AI agent actually own — and where do users insist on staying in control?</p>
-    <p>I ran five in-depth interviews with data practitioners across government, retail, SaaS, MSP, and consulting, structured around three goals:</p>
+    <p>We had a guided-onboarding MVP in alpha. The question for near-term release planning was blunt: how much of this journey can AI actually own — and where do users insist on staying in control?</p>
+    <p>Product and design were aligned on expanding automation — script generation, environment discovery, and a topology map every admin would see on day one. Nobody yet had evidence on where automation would earn trust, or where it would be rejected before a human clicked “apply.”</p>
+    <p>What the team assumed going in:</p>
+    <ul style="margin:0; padding-left:20px; display:flex; flex-direction:column; gap:8px;">
+      <li>More AI in the flow would mean faster time-to-value</li>
+      <li>A visual topology map would help everyone orient quickly</li>
+      <li>Enterprise users were ready for agent-driven onboarding</li>
+    </ul>
+    
+    <p style="margin-top:1.2em;"><strong style="font-weight:600; color:#242424;">What was at stake:</strong> Ship the wrong automation and you add UI complexity without shortening time-to-value. Cost approvers block ingestion. Engineers refuse one-click deploy. Sponsors still wait on ticketing workflows. The prototype could look intelligent and still fail in production.</p>
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#46803e; margin-top:36px;">Research goals</div>
   </article>
 
   <div style="max-width:760px; margin:0 auto; padding:14px 24px 0;">
     <div class="grid-3" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px;">
-      <div style="border-top:2px solid #46803e; padding-top:14px;"><div style="font-weight:600; font-size:13px; margin-bottom:8px;">01 · Attitudes to AI</div><p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0;">Gauge teams’ appetite for AI agents taking over automation.</p></div>
-      <div style="border-top:2px solid #46803e; padding-top:14px;"><div style="font-weight:600; font-size:13px; margin-bottom:8px;">02 · Collaboration</div><p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0;">Map how teams onboard data and make decisions together.</p></div>
-      <div style="border-top:2px solid #46803e; padding-top:14px;"><div style="font-weight:600; font-size:13px; margin-bottom:8px;">03 · Topology maps</div><p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0;">Test the topology-map visualization concept.</p></div>
+      <div style="border-top:2px solid #46803e; padding-top:14px;"><div style="font-weight:600; font-size:13px; margin-bottom:8px;">01 · Attitudes to AI</div><p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0;">Gauge appetite for AI agents, and where full automation is a red flag.</p></div>
+      <div style="border-top:2px solid #46803e; padding-top:14px;"><div style="font-weight:600; font-size:13px; margin-bottom:8px;">02 · Collaboration</div><p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0;">Map how teams onboard data, hand off work, and make decisions together.</p></div>
+      <div style="border-top:2px solid #46803e; padding-top:14px;"><div style="font-weight:600; font-size:13px; margin-bottom:8px;">03 · Topology maps</div><p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0;">Test whether a pipeline topology concept helps the right people for the right job, or adds noise.</p></div>
     </div>
   </div>
+
+  <article class="body-copy" style="max-width:680px; margin:0 auto; padding:52px 24px 0;">
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; margin:0 0 20px;">My role &amp; methods</h2>
+    <p>I led this study end-to-end: recruitment, five 90 minute generative interviews, synthesis, persona framework, journey mapping, concept evaluation, and a cross-functional readout ahead of release planning.</p>
+    <p>Participants were senior practitioners across public sector, retail, SaaS, MSP, and consulting: platform owners, architects, engineers, and security leads. I intentionally mixed proactive (strategic harmonization) and reactive (incident-driven) onboarding stories.</p>
+    <p style="font-size:14px; color:#6b6b6b;"><strong style="font-weight:600; color:#242424;">Synthesis lenses:</strong> Automation · User journey · Collaboration</p>
+  </article>
 
   <figure style="max-width:820px; margin:56px auto; padding:0 24px;">
     <div class="quote-box" style="background:#242424; color:#fff; border-radius:14px; padding:60px 56px; text-align:center;">
       <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#8fce85; margin-bottom:26px;">The core finding</div>
-      <p class="quote-lead" style="font-family:'Newsreader',serif; font-weight:400; font-size:38px; line-height:1.22; margin:0;">“Data onboarding is an organizational relay race — <em style="font-style:italic; color:#8fce85;">where the baton is frequently dropped.</em>”</p>
+      <p class="quote-lead" style="font-family:'Newsreader',serif; font-weight:400; font-size:38px; line-height:1.22; margin:0;">“Data onboarding is an organizational relay race&nbsp;<em style="font-style: italic; color: rgb(143, 206, 133);">where the baton is frequently dropped.</em>”</p>
     </div>
     <figcaption style="font-size:14px; line-height:1.6; color:#6b6b6b; margin-top:20px;">The Sponsor buys a vision, the Architect draws a map, the Doer digs the trench, the Guardian watches the meter, and the Operator waits for the water. The primary failure point is the <strong style="color:#242424;">Implementation Gap</strong> — where business intent collides with messy, legacy reality.</figcaption>
   </figure>
 
   <article class="body-copy" style="max-width:680px; margin:0 auto;">
     <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; margin:0 0 8px;">Five personas in the relay</h2>
-    <p style="font-size:16px !important; color:#6b6b6b !important;">Each persona sits at a different point on the trust curve — no single automation setting serves them all.</p>
+    <p style="font-size:16px !important; color:#6b6b6b !important;">Each persona sits at a different point on the trust curve, no single automation setting serves them all.</p>
   </article>
 
   <div style="max-width:820px; margin:0 auto; padding:12px 24px 0;">
     <div class="grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Sponsor</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Outcome Owner</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I don’t care how the data gets here, as long as we pass the audit and save money.”</p></div>
-      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Architect</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Blueprint Designer</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I build the patterns so the engineers don’t reinvent the wheel.”</p></div>
-      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Doer</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Trench Digger</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I’m doing registry surgery at 2 a.m. because the installer broke.”</p></div>
-      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Guardian</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Budget Watchdog</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“Windows logs are 90% junk. I’m not paying to index Microsoft’s fluff.”</p></div>
-      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px; grid-column:1 / -1;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Operator</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The First Responder</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I only care about the platform when the application is down.”</p></div>
+      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Sponsor</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Outcome Owner</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I don’t care how the data gets here, as long as we pass the audit and save money.”</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a; margin-top:14px;">AI trust: <span style="color:#46803e;">High</span> (ROI modeling)</div></div>
+      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Architect</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Blueprint Designer</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I build the patterns so the engineers don’t reinvent the wheel.”</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a; margin-top:14px;">AI trust: <span style="color:#46803e;">Low</span> (needs logic &amp; transparency)</div></div>
+      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Doer</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Trench Digger</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I’m doing registry surgery at 2 a.m. because the installer broke.”</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a; margin-top:14px;">AI trust: <span style="color:#46803e;">Medium</span> (needs review)</div></div>
+      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Guardian</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Budget Watchdog</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“Windows logs are 90% junk. I’m not paying to index Microsoft’s fluff.”</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a; margin-top:14px;">AI trust: <span style="color:#46803e;">Low</span> (cost &amp; privacy)</div></div>
+      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px; grid-column:1 / -1;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Operator</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The First Responder</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I only care about the platform when the application is down.”</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a; margin-top:14px;">AI trust: <span style="color:#46803e;">High</span> (speed &amp; summarization)</div></div>
     </div>
   </div>
 
@@ -116,7 +133,7 @@
     <div class="quote-box" style="background:#46803e; color:#fff; border-radius:14px; padding:60px 56px; text-align:center;">
       <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.75); margin-bottom:24px;">Headline insight</div>
       <p class="quote-lead" style="font-family:'Newsreader',serif; font-weight:400; font-size:46px; line-height:1.1; margin:0;">Users want a co-pilot,<br><em style="font-style:italic;">not an auto-pilot.</em></p>
-      <p style="font-size:17px; line-height:1.6; color:rgba(255,255,255,.9); max-width:520px; margin:26px auto 0;">Trust is conditional — calibrated by the <strong style="font-weight:600;">complexity</strong> of the task, the <strong style="font-weight:600;">sensitivity</strong> of the data, and the ability to <strong style="font-weight:600;">review and override</strong> the AI’s output.</p>
+      <p style="font-size:17px; line-height:1.6; color:rgba(255,255,255,.9); max-width:520px; margin:26px auto 0;">Trust is conditional : calibrated by the <strong style="font-weight: 600;">complexity</strong> of the task, the <strong style="font-weight: 600;">sensitivity</strong> of the data, and the ability to <strong style="font-weight: 600;">review and override</strong> the AI’s output.</p>
     </div>
   </figure>
 
@@ -138,20 +155,73 @@
     </div>
   </div>
 
+  <figure style="max-width:820px; margin:56px auto; padding:0 24px;">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#46803e; margin-bottom:18px; text-align:center;">Design principle</div>
+    <div class="quote-box" style="background:#f0f0ee; border-radius:14px; padding:48px 52px; text-align:center;">
+      <p class="quote-lead" style="font-family:'Newsreader',serif; font-weight:400; font-size:30px; line-height:1.32; margin:0;">If AI discovers data but cost approval and legacy infrastructure fixes stay manual, time-to-value doesn’t improve.</p>
+    </div>
+  </figure>
+
   <article class="body-copy" style="max-width:680px; margin:0 auto; padding:56px 24px 0;">
-    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; margin:0 0 20px;">The topology map — powerful, but not for everyone</h2>
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; margin:0 0 20px;">The topology map is powerful, but not for everyone</h2>
     <p>Architects and advanced engineers saw the topology graph as a way to translate strategy into an actionable engineering plan. For connector-only users, the multi-stage flow was confusing and irrelevant.</p>
-    <p style="font-family:'Newsreader',serif !important; font-style:italic; font-size:26px !important; line-height:1.4 !important; color:#242424 !important; border-left:3px solid #46803e; padding-left:22px;">“A powerful blueprint for architects — but overkill for simpler, connector-based use cases.”</p>
+    <p style="font-family:'Newsreader',serif !important; font-style:italic; font-size:26px !important; line-height:1.4 !important; color:#242424 !important; border-left:3px solid #46803e; padding-left:22px;">“A powerful blueprint for architects, but overkill for simpler, connector-based use cases.”</p>
     <p>The clear signal: make depth progressive, not default.</p>
 
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; margin:44px 0 16px;">What changed</h2>
+    <p>Research didn’t just produce insights — it reframed release scope before teams locked their bets.</p>
+    <div style="display:flex; flex-direction:column; gap:16px; margin-top:24px;">
+      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;">
+        <div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:16px;">Automation scope</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <p style="font-size:15px; line-height:1.55; color:#6b6b6b; margin:0;"><strong style="font-weight:600; color:#8a8a8a; font-size:11px; letter-spacing:.1em; text-transform:uppercase;">Before&nbsp;&nbsp;</strong>Expand AI across the onboarding workflow.</p>
+          <p style="font-size:15px; line-height:1.55; color:#444; margin:0;"><strong style="font-weight:600; color:#46803e; font-size:11px; letter-spacing:.1em; text-transform:uppercase;">After&nbsp;&nbsp;</strong>Automate preparation (scripts, scans, documentation); keep humans on commit (deploy, cost approval, sensitive data).</p>
+          <p style="font-size:15px; line-height:1.55; color:#444; margin:0; border-top:1px solid #eee; padding-top:10px;"><strong style="font-weight:600; color:#242424; font-size:11px; letter-spacing:.1em; text-transform:uppercase;">Outcome&nbsp;&nbsp;</strong>One-click production config deployment excluded from the first AI-assisted release. Co-pilot patterns with explicit review became the default framing for eng and design epics.</p>
+        </div>
+      </div>
+      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;">
+        <div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:16px;">Topology &amp; audience</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <p style="font-size:15px; line-height:1.55; color:#6b6b6b; margin:0;"><strong style="font-weight:600; color:#8a8a8a; font-size:11px; letter-spacing:.1em; text-transform:uppercase;">Before&nbsp;&nbsp;</strong>One guided flow for everyone.</p>
+          <p style="font-size:15px; line-height:1.55; color:#444; margin:0;"><strong style="font-weight:600; color:#46803e; font-size:11px; letter-spacing:.1em; text-transform:uppercase;">After&nbsp;&nbsp;</strong>Role-based paths — depth for architects, simplicity for connector-ready workflows.</p>
+          <p style="font-size:15px; line-height:1.55; color:#444; margin:0; border-top:1px solid #eee; padding-top:10px;"><strong style="font-weight:600; color:#242424; font-size:11px; letter-spacing:.1em; text-transform:uppercase;">Outcome&nbsp;&nbsp;</strong>Design stopped treating a single topology view as the universal entry point.</p>
+        </div>
+      </div>
+      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;">
+        <div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:16px;">Shared vocabulary</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <p style="font-size:15px; line-height:1.55; color:#6b6b6b; margin:0;"><strong style="font-weight:600; color:#8a8a8a; font-size:11px; letter-spacing:.1em; text-transform:uppercase;">Before&nbsp;&nbsp;</strong>Debates framed as “how much AI?”</p>
+          <p style="font-size:15px; line-height:1.55; color:#444; margin:0;"><strong style="font-weight:600; color:#46803e; font-size:11px; letter-spacing:.1em; text-transform:uppercase;">After&nbsp;&nbsp;</strong>Debates framed as “which handoff does this automation actually shorten?”</p>
+          <p style="font-size:15px; line-height:1.55; color:#444; margin:0; border-top:1px solid #eee; padding-top:10px;"><strong style="font-weight:600; color:#242424; font-size:11px; letter-spacing:.1em; text-transform:uppercase;">Outcome&nbsp;&nbsp;</strong>“Co-pilot not auto-pilot,” “implementation gap,” and “relay race” entered release planning conversations across PM, Design, and Eng.</p>
+        </div>
+      </div>
+    </div>
+    <div style="border:1px dashed #cfcfc9; border-radius:12px; padding:0; margin-top:16px; aspect-ratio:16/8; overflow:hidden;">
+      <image-slot id="ai-default-vs-architect" shape="rect" style="width:100%; height:100%;" placeholder="Default path vs. architect mode — role-based concept framing"></image-slot>
+    </div>
+
     <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; margin:44px 0 20px;">Impact</h2>
-    <p>The trust &amp; automation framework became the lens two product teams use to prioritize agentic features — focusing build effort on the green-light tasks and designing explicit human checkpoints into the rest.</p>
-    <p>It shaped the GA roadmap for agentic onboarding and gave design a shared, evidence-backed vocabulary for the “co-pilot, not auto-pilot” model — turning a fuzzy debate about “how much AI” into a calibrated map of where automation earns trust.</p>
+    <p>The trust &amp; automation framework became the lens two product teams used to prioritize agentic features — focusing build effort on green-light tasks and designing explicit human checkpoints everywhere else.</p>
+    <p>It shaped near-term release scope for AI-assisted onboarding and gave design a shared, evidence-backed vocabulary for the co-pilot model — turning a fuzzy debate about “how much AI” into a calibrated map of where automation earns trust.</p>
+    <p style="margin-bottom:0;"><strong style="font-weight:600; color:#242424;">Concrete outcomes</strong></p>
+    <ul style="margin:16px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:14px;">
+      <li style="display:flex; gap:12px; font-size:17px; line-height:1.6; color:#333;"><span style="color:#46803e; flex:none; line-height:1.6;">•</span><span>Prioritized script generation, environment scanning, and documentation drafting in release scope.</span></li>
+      <li style="display:flex; gap:12px; font-size:17px; line-height:1.6; color:#333;"><span style="color:#46803e; flex:none; line-height:1.6;">•</span><span>Deprioritized full-auto deployment patterns that fail at cost-approval and engineer handoffs.</span></li>
+      <li style="display:flex; gap:12px; font-size:17px; line-height:1.6; color:#333;"><span style="color:#46803e; flex:none; line-height:1.6;">•</span><span>Split onboarding UX by job performer — progressive depth for architects, simplified paths for tactical users.</span></li>
+      <li style="display:flex; gap:12px; font-size:17px; line-height:1.6; color:#333;"><span style="color:#46803e; flex:none; line-height:1.6;">•</span><span>Connected to the broader Data Management JTBD library (see next case) — onboarding named as the domain’s core job before AI features were scoped.</span></li>
+    </ul>
+    <div style="border:1px dashed #cfcfc9; border-radius:12px; padding:0; margin-top:20px; aspect-ratio:16/8; overflow:hidden;">
+      <image-slot id="ai-impact-summary" shape="rect" style="width:100%; height:100%;" placeholder="Research → Framework → Release implications — one-page summary, redacted"></image-slot>
+    </div>
+
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; margin:44px 0 20px;">Reflection</h2>
+    <p>I’d lead with organizational handoffs again, not AI feature enthusiasm, the relay-race metaphor did more work than any single UI recommendation.</p>
+    <p>n=5 is appropriate for strategic generative work with senior practitioners. I paired interview depth with prototype evaluation and existing alpha learnings rather than claiming statistical coverage.</p>
   </article>
 
   <a href="Case-JTBD.dc.html" style="display:block; max-width:820px; margin:64px auto 0; padding:0 24px;">
     <div class="next-case" style="border:1px solid #e6e6e6; border-radius:14px; padding:34px 40px; display:flex; justify-content:space-between; align-items:center;">
-      <div><div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8a8a8a; margin-bottom:8px;">Next case study</div><div style="font-family:'Newsreader',serif; font-size:28px;">JTBD in Data Management</div></div>
+      <div><div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8a8a8a; margin-bottom:8px;">Next case study</div><div style="font-family:'Newsreader',serif; font-size:28px;">JTBD in Data Management</div><div style="font-size:14px; color:#8a8a8a; margin-top:6px;">The research foundation this study built on</div></div>
       <span style="font-family:'Newsreader',serif; font-size:36px; color:#46803e;">→</span>
     </div>
   </a>

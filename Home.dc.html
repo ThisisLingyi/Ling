@@ -20,6 +20,18 @@
 </style>
 </helmet>
 <div style="font-family:'Archivo',sans-serif;">
+<sc-if value="{{ locked }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed; inset:0; z-index:1000; background:#ffffff; display:flex; align-items:center; justify-content:center; font-family:'Archivo',sans-serif; padding:24px;">
+      <div style="width:100%; max-width:360px; text-align:center;">
+        <div style="font-family:'Newsreader',serif; font-weight:500; font-size:34px; margin-bottom:10px;">Lingyi Ge</div>
+        <p style="font-size:15px; line-height:1.6; color:#6b6b6b; margin:0 0 26px;">This portfolio is private. Enter the password to continue.</p>
+        <input type="password" placeholder="Password" autoComplete="off" value="{{ pw }}" onChange="{{ onPwInput }}" onKeyDown="{{ onPwKey }}" style="width:100%; padding:13px 16px; font-size:15px; font-family:inherit; color:#242424; border:1px solid #cfcfcf; border-radius:10px; outline:none; margin:0 0 12px;">
+        <button onClick="{{ onSubmit }}" style="width:100%; padding:13px 16px; font-size:15px; font-family:inherit; font-weight:600; color:#fff; background:#46803e; border:none; border-radius:10px; cursor:pointer;">Enter</button>
+        <sc-if value="{{ showError }}" hint-placeholder-val="{{ false }}"><p style="font-size:13px; color:#c0392b; margin:14px 0 0;">Incorrect password. Try again.</p></sc-if>
+      </div>
+    </div>
+  </sc-if>
+
 
   <nav style="position:sticky; top:0; z-index:40; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); display:flex; justify-content:space-between; align-items:center; padding:20px 56px; border-bottom:1px solid #e6e6e6;">
     <a href="Home.dc.html" style="font-family:'Newsreader',serif; font-weight:500; font-size:24px;">Lingyi Ge</a>
@@ -34,7 +46,7 @@
 
     <div style="min-width:0;">
       <h1 style="font-family:'Newsreader',serif; font-weight:400; font-size:54px; line-height:1.15; letter-spacing:-.01em; margin:0 0 20px;">I turn messy, highly technical domains into decisions teams can ship.</h1>
-      <div style="margin:0 0 40px; padding-bottom:36px; border-bottom:1px solid #e6e6e6; font-weight:500; font-size:15px; letter-spacing:.02em; color:#46803e; display:flex; flex-wrap:wrap; gap:14px; align-items:center;"><span>Data Management</span><span style="color:#c9c9c4;">|</span><span>Agentic Experience</span><span style="color:#c9c9c4;">|</span><span>SaaS &amp; Cloud Platform</span><span style="color:#c9c9c4;">|</span><span>Data Security</span></div>
+      <div style="margin:0 0 40px; padding-bottom:36px; border-bottom:1px solid #e6e6e6; font-weight:500; font-size:15px; letter-spacing:.02em; color:#46803e; display:flex; flex-wrap:wrap; gap:14px; align-items:center;"><span>SaaS &amp; Cloud Platform</span><span style="color:#c9c9c4;">|</span><span>Data Management</span><span style="color:#c9c9c4;">|</span><span>Agentic Experience</span><span style="color:#c9c9c4;">|</span><span>Data Security</span></div>
 
       <div id="work" style="font-weight:600; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8a8a8a; margin-bottom:28px;">Selected work</div>
 
@@ -60,7 +72,7 @@
 
       <div id="about" style="padding-top:52px;">
         <div style="font-weight:600; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8a8a8a; margin-bottom:26px;">About</div>
-        <p style="font-family:'Newsreader',serif; font-weight:300; font-size:26px; line-height:1.5; color:#242424; margin:0 0 30px;">SF-based, multi-cultured, AI-focused. I’m the sole research owner for a highly technical, agentic data platform — leading cross-org studies on where automation <em style="font-style:italic; color:#46803e;">should</em>, and shouldn’t, take control.</p>
+        <p style="font-family:'Newsreader',serif; font-weight:300; font-size:26px; line-height:1.5; color:#242424; margin:0 0 30px;">SF-based, multi-cultured, AI-focused. I’m the sole research owner for a highly technical, agentic data platform, leading cross-org studies on where automation <em style="font-style:italic; color:#46803e;">should</em>, and shouldn’t, take control.</p>
         <p style="font-size:16px; line-height:1.7; color:#444; margin:0 0 18px;">My work spans the full arc of a study — from opportunity framing and research roadmaps through synthesis and stakeholder activation — with mixed-methods design that triangulates interviews, contextual inquiry, usability testing, surveys, and product analytics.</p>
         <p style="font-size:16px; line-height:1.7; color:#444; margin:0;">I build research foundations (JTBD, personas, journey maps) that ground product decisions, and I’ve scaled research capacity with AI tooling and a cross-org enablement program that helps 20+ designers run their own studies.</p>
 
@@ -76,15 +88,23 @@
         <div style="font-weight:600; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8a8a8a; margin-bottom:26px;">Experience</div>
         <div style="border-top:1px solid #e6e6e6; padding:22px 0;">
           <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;"><h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:24px; margin:0;">Senior User Researcher — Cisco <span style="color:#8a8a8a;">(AppDynamics &amp; Splunk)</span></h3><span style="font-size:13px; color:#8a8a8a;">2020 — Now</span></div>
-          <p style="font-size:15px; line-height:1.6; color:#555; margin:10px 0 0;">Sole research owner for the data management domain. I lead research on agentic data experiences — from the “co-pilot, not auto-pilot” AI trust framework to the platform’s foundational JTBD library — and scale the practice through AI research tooling and a cross-org enablement program (26 workshops, 20+ designers running their own studies).</p>
+          <p style="font-size:14px; color:#8a8a8a; margin:6px 0 0;">Enterprise APM tool and data platform · sole research owner for the data management domain</p>
+          <div style="display:flex; flex-direction:column; gap:12px; margin:14px 0 0;">
+            <p style="font-size:15px; line-height:1.6; color:#555; margin:0;"><strong style="font-weight:600; color:#242424;">Lead researcher for agentic data experiences.</strong> Built an AI trust &amp; automation framework — a “co-pilot, not auto-pilot” model across 5 personas showing trust is calibrated by task complexity, data sensitivity, and reviewability; used to focus teams on the highest trust &amp; automation opportunities and shaped the GA roadmap for agentic onboarding across 2 product teams.</p>
+            <p style="font-size:15px; line-height:1.6; color:#555; margin:0;"><strong style="font-weight:600; color:#242424;">Sole data management domain researcher.</strong> Built the platform’s foundational research library (JTBD, personas, journey maps) from scratch over a one-year research roadmap, now the reference source for product and design decisions.</p>
+            <p style="font-size:15px; line-height:1.6; color:#555; margin:0;"><strong style="font-weight:600; color:#242424;">Scaled research capacity with AI tooling.</strong> Built an AI research agent, knowledge wiki, and reusable research skills and templates that reduce research operations time and extend research support beyond core research.</p>
+            <p style="font-size:15px; line-height:1.6; color:#555; margin:0;"><strong style="font-weight:600; color:#242424;">Established a cross-org research enablement program.</strong> Hosted 26 workshops and 40 mentorship sessions, enabling 20+ designers to independently run their own design-feedback focus groups and build cross-org relationships.</p>
+          </div>
         </div>
         <div style="border-top:1px solid #e6e6e6; padding:22px 0;">
           <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;"><h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:24px; margin:0;">UX Researcher Intern — Salesforce <span style="color:#8a8a8a;">(Trailhead)</span></h3><span style="font-size:13px; color:#8a8a8a;">2020</span></div>
-          <p style="font-size:15px; line-height:1.6; color:#555; margin:10px 0 0;">First researcher on the team; scoped and ran agile qualitative studies that gave design its first structured view of user pain points and drove prioritization.</p>
+          <p style="font-size:14px; color:#8a8a8a; margin:6px 0 0;">Salesforce’s e-learning platform</p>
+          <p style="font-size:15px; line-height:1.6; color:#555; margin:12px 0 0;">First researcher on the team; scoped and ran agile qualitative studies and provided the design team its first structured view of user pain points and use cases, driving immediate design prioritization.</p>
         </div>
         <div style="border-top:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6; padding:22px 0;">
           <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;"><h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:24px; margin:0;">Operations Data Analyst — Google <span style="color:#8a8a8a;">(Google Express)</span></h3><span style="font-size:13px; color:#8a8a8a;">2017 — 2018</span></div>
-          <p style="font-size:15px; line-height:1.6; color:#555; margin:10px 0 0;">Blended qualitative and quantitative methods to model operator behavior in a new logistics system and drive operational improvements.</p>
+          <p style="font-size:14px; color:#8a8a8a; margin:6px 0 0;">Online shopping and delivery service with local retailers (now Google Shopping)</p>
+          <p style="font-size:15px; line-height:1.6; color:#555; margin:12px 0 0;">Blended qualitative and quantitative methods — surveys, quantitative data analysis, contextual inquiry, and shadowing — to model operator behavior in a new logistics system and drive data-informed operational improvements.</p>
         </div>
       </div>
     </div>
@@ -113,5 +133,24 @@
 
 </div>
 </x-dc>
+<script data-dc-script type="dc-logic">
+class Component extends DCLogic {
+  state = { unlocked: (function(){ try { return sessionStorage.getItem('lg_site_unlocked') === '1'; } catch(e){ return false; } })(), pw: '', error: false };
+  submit(){
+    if (this.state.pw === 'cheers'){ try { sessionStorage.setItem('lg_site_unlocked','1'); } catch(e){} this.setState({ unlocked: true, error: false }); }
+    else { this.setState({ error: true, pw: '' }); }
+  }
+  renderVals(){
+    return {
+      locked: !this.state.unlocked,
+      pw: this.state.pw,
+      showError: this.state.error,
+      onPwInput: (e) => this.setState({ pw: e.target.value, error: false }),
+      onPwKey: (e) => { if (e.key === 'Enter') this.submit(); },
+      onSubmit: () => this.submit(),
+    };
+  }
+}
+</script>
 </body>
 </html>

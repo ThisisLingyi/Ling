@@ -22,6 +22,18 @@
 </style>
 </helmet>
 <div style="font-family:'Archivo',sans-serif;">
+<sc-if value="{{ locked }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed; inset:0; z-index:1000; background:#ffffff; display:flex; align-items:center; justify-content:center; font-family:'Archivo',sans-serif; padding:24px;">
+      <div style="width:100%; max-width:360px; text-align:center;">
+        <div style="font-family:'Newsreader',serif; font-weight:500; font-size:34px; margin-bottom:10px;">Lingyi Ge</div>
+        <p style="font-size:15px; line-height:1.6; color:#6b6b6b; margin:0 0 26px;">This portfolio is private. Enter the password to continue.</p>
+        <input type="password" placeholder="Password" autoComplete="off" value="{{ pw }}" onChange="{{ onPwInput }}" onKeyDown="{{ onPwKey }}" style="width:100%; padding:13px 16px; font-size:15px; font-family:inherit; color:#242424; border:1px solid #cfcfcf; border-radius:10px; outline:none; margin:0 0 12px;">
+        <button onClick="{{ onSubmit }}" style="width:100%; padding:13px 16px; font-size:15px; font-family:inherit; font-weight:600; color:#fff; background:#46803e; border:none; border-radius:10px; cursor:pointer;">Enter</button>
+        <sc-if value="{{ showError }}" hint-placeholder-val="{{ false }}"><p style="font-size:13px; color:#c0392b; margin:14px 0 0;">Incorrect password. Try again.</p></sc-if>
+      </div>
+    </div>
+  </sc-if>
+
 
   <nav style="position:sticky; top:0; z-index:40; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); display:flex; justify-content:space-between; align-items:center; padding:20px 56px; border-bottom:1px solid #e6e6e6;">
     <a href="Home.dc.html" style="font-family:'Newsreader',serif; font-weight:500; font-size:24px;">Lingyi Ge</a>
@@ -109,5 +121,24 @@
 
 </div>
 </x-dc>
+<script data-dc-script type="dc-logic">
+class Component extends DCLogic {
+  state = { unlocked: (function(){ try { return sessionStorage.getItem('lg_site_unlocked') === '1'; } catch(e){ return false; } })(), pw: '', error: false };
+  submit(){
+    if (this.state.pw === 'cheers'){ try { sessionStorage.setItem('lg_site_unlocked','1'); } catch(e){} this.setState({ unlocked: true, error: false }); }
+    else { this.setState({ error: true, pw: '' }); }
+  }
+  renderVals(){
+    return {
+      locked: !this.state.unlocked,
+      pw: this.state.pw,
+      showError: this.state.error,
+      onPwInput: (e) => this.setState({ pw: e.target.value, error: false }),
+      onPwKey: (e) => { if (e.key === 'Enter') this.submit(); },
+      onSubmit: () => this.submit(),
+    };
+  }
+}
+</script>
 </body>
 </html>

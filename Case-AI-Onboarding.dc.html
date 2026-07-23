@@ -19,6 +19,19 @@
   ::selection{ background:#46803e; color:#fff; }
   .body-copy p{ font-size:19px; line-height:1.7; color:#333; margin:0 0 22px; }
   .body-copy p:last-child{ margin-bottom:0; }
+  img{ max-width:100%; }
+  @media (max-width:760px){
+    .nav{ flex-wrap:wrap; gap:12px 0; padding:14px 20px !important; }
+    .nav-role{ display:none !important; }
+    .nav-links{ gap:14px !important; font-size:13px !important; flex-wrap:wrap; }
+    .case-h1{ font-size:34px !important; }
+    .grid-3{ grid-template-columns:1fr !important; }
+    .grid-2{ grid-template-columns:1fr !important; gap:16px !important; }
+    .quote-box{ padding:36px 26px !important; }
+    .quote-lead{ font-size:30px !important; }
+    .next-case{ flex-direction:column !important; gap:16px !important; align-items:flex-start !important; padding:26px 24px !important; }
+    .footer{ flex-direction:column !important; gap:6px !important; padding:24px 20px !important; }
+  }
 </style>
 </helmet>
 <div style="font-family:'Archivo',sans-serif;">
@@ -35,9 +48,9 @@
   </sc-if>
 
 
-  <nav style="position:sticky; top:0; z-index:40; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); display:flex; justify-content:space-between; align-items:center; padding:20px 56px; border-bottom:1px solid #e6e6e6;">
-    <a href="Home.dc.html" style="display:flex; align-items:baseline; gap:11px; text-decoration:none;"><span style="font-family:'Newsreader',serif; font-weight:500; font-size:24px; color:#242424;">Lingyi Ge</span><span style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a; font-weight:500;">Senior UX Researcher</span></a>
-    <div style="display:flex; gap:26px; align-items:center; font-size:14px; color:#6b6b6b;">
+  <nav class="nav" style="position:sticky; top:0; z-index:40; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); display:flex; justify-content:space-between; align-items:center; padding:20px 56px; border-bottom:1px solid #e6e6e6;">
+    <a href="Home.dc.html" style="display:flex; align-items:baseline; gap:11px; text-decoration:none;"><span style="font-family:'Newsreader',serif; font-weight:500; font-size:24px; color:#242424;">Lingyi Ge</span><span class="nav-role" style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a; font-weight:500;">Senior UX Researcher</span></a>
+    <div class="nav-links" style="display:flex; gap:26px; align-items:center; font-size:14px; color:#6b6b6b;">
       <a href="Home.dc.html#work">Work</a><a href="Home.dc.html#about">About</a>
       <a href="uploads/Lingyi_Ge_Senior_UXR_Resume_AI.docx.pdf" download target="_blank">Résumé</a>
       <a href="mailto:lingyigee@gmail.com" style="background:transparent; color:#242424; border:1px solid #cfcfcf; padding:8px 18px; border-radius:100px; font-size:13px;">Get in touch</a>
@@ -47,7 +60,7 @@
   <article style="max-width:760px; margin:0 auto; padding:64px 24px 40px;">
     <a href="Home.dc.html" style="font-size:13px; color:#46803e; letter-spacing:.02em;">← All work</a>
     <div style="font-size:13px; color:#6b6b6b; margin:20px 0 14px;">Case study · Trust &amp; Automation · Cisco Data Fabric</div>
-    <h1 style="font-family:'Newsreader',serif; font-weight:400; font-size:52px; line-height:1.12; letter-spacing:-.01em; margin:0 0 22px;">AI &amp; Guided Onboarding</h1>
+    <h1 class="case-h1" style="font-family:'Newsreader',serif; font-weight:400; font-size:52px; line-height:1.12; letter-spacing:-.01em; margin:0 0 22px;">AI &amp; Guided Onboarding</h1>
     <p style="font-family:'Newsreader',serif; font-weight:300; font-size:23px; line-height:1.5; color:#444; margin:0 0 28px;">How data admins onboard the right organizational data to the right destinations — and where an AI agent should, and shouldn’t, take the wheel.</p>
     <div style="display:flex; align-items:center; gap:12px; padding:20px 0; border-top:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6;">
       <div style="width:40px; height:40px; border-radius:50%; overflow:hidden;"><img src="uploads/headshot.jpg" alt="Lingyi Ge" style="width:100%; height:100%; object-fit:cover; object-position:center 20%; display:block;"></div>
@@ -69,7 +82,7 @@
   </article>
 
   <div style="max-width:760px; margin:0 auto; padding:14px 24px 0;">
-    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px;">
+    <div class="grid-3" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px;">
       <div style="border-top:2px solid #46803e; padding-top:14px;"><div style="font-weight:600; font-size:13px; margin-bottom:8px;">01 · Attitudes to AI</div><p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0;">Gauge teams’ appetite for AI agents taking over automation.</p></div>
       <div style="border-top:2px solid #46803e; padding-top:14px;"><div style="font-weight:600; font-size:13px; margin-bottom:8px;">02 · Collaboration</div><p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0;">Map how teams onboard data and make decisions together.</p></div>
       <div style="border-top:2px solid #46803e; padding-top:14px;"><div style="font-weight:600; font-size:13px; margin-bottom:8px;">03 · Topology maps</div><p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0;">Test the topology-map visualization concept.</p></div>
@@ -77,9 +90,9 @@
   </div>
 
   <figure style="max-width:820px; margin:56px auto; padding:0 24px;">
-    <div style="background:#242424; color:#fff; border-radius:14px; padding:60px 56px; text-align:center;">
+    <div class="quote-box" style="background:#242424; color:#fff; border-radius:14px; padding:60px 56px; text-align:center;">
       <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#8fce85; margin-bottom:26px;">The core finding</div>
-      <p style="font-family:'Newsreader',serif; font-weight:400; font-size:38px; line-height:1.22; margin:0;">“Data onboarding is an organizational relay race — <em style="font-style:italic; color:#8fce85;">where the baton is frequently dropped.</em>”</p>
+      <p class="quote-lead" style="font-family:'Newsreader',serif; font-weight:400; font-size:38px; line-height:1.22; margin:0;">“Data onboarding is an organizational relay race — <em style="font-style:italic; color:#8fce85;">where the baton is frequently dropped.</em>”</p>
     </div>
     <figcaption style="font-size:14px; line-height:1.6; color:#6b6b6b; margin-top:20px;">The Sponsor buys a vision, the Architect draws a map, the Doer digs the trench, the Guardian watches the meter, and the Operator waits for the water. The primary failure point is the <strong style="color:#242424;">Implementation Gap</strong> — where business intent collides with messy, legacy reality.</figcaption>
   </figure>
@@ -90,7 +103,7 @@
   </article>
 
   <div style="max-width:820px; margin:0 auto; padding:12px 24px 0;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+    <div class="grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
       <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Sponsor</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Outcome Owner</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I don’t care how the data gets here, as long as we pass the audit and save money.”</p></div>
       <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Architect</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Blueprint Designer</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I build the patterns so the engineers don’t reinvent the wheel.”</p></div>
       <div style="border:1px solid #e6e6e6; border-radius:12px; padding:26px;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:6px;">The Doer</div><div style="font-family:'Newsreader',serif; font-size:22px; margin-bottom:12px;">The Trench Digger</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.45; color:#444; margin:0;">“I’m doing registry surgery at 2 a.m. because the installer broke.”</p></div>
@@ -100,15 +113,15 @@
   </div>
 
   <figure style="max-width:820px; margin:56px auto; padding:0 24px;">
-    <div style="background:#46803e; color:#fff; border-radius:14px; padding:60px 56px; text-align:center;">
+    <div class="quote-box" style="background:#46803e; color:#fff; border-radius:14px; padding:60px 56px; text-align:center;">
       <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.75); margin-bottom:24px;">Headline insight</div>
-      <p style="font-family:'Newsreader',serif; font-weight:400; font-size:46px; line-height:1.1; margin:0;">Users want a co-pilot,<br><em style="font-style:italic;">not an auto-pilot.</em></p>
+      <p class="quote-lead" style="font-family:'Newsreader',serif; font-weight:400; font-size:46px; line-height:1.1; margin:0;">Users want a co-pilot,<br><em style="font-style:italic;">not an auto-pilot.</em></p>
       <p style="font-size:17px; line-height:1.6; color:rgba(255,255,255,.9); max-width:520px; margin:26px auto 0;">Trust is conditional — calibrated by the <strong style="font-weight:600;">complexity</strong> of the task, the <strong style="font-weight:600;">sensitivity</strong> of the data, and the ability to <strong style="font-weight:600;">review and override</strong> the AI’s output.</p>
     </div>
   </figure>
 
   <div style="max-width:820px; margin:0 auto; padding:8px 24px 0;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+    <div class="grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
       <div>
         <div style="font-weight:600; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:#46803e; margin-bottom:18px;">● Green lights — automate now</div>
         <div style="border-top:1px solid #e6e6e6; padding:18px 0;"><h4 style="font-family:'Newsreader',serif; font-size:21px; margin:0 0 5px;">Code &amp; script generation</h4><p style="font-size:15px; line-height:1.5; color:#6b6b6b; margin:0;">Already trusted via Copilot — a fast start the engineer still reviews.</p></div>
@@ -137,13 +150,13 @@
   </article>
 
   <a href="Case-JTBD.dc.html" style="display:block; max-width:820px; margin:64px auto 0; padding:0 24px;">
-    <div style="border:1px solid #e6e6e6; border-radius:14px; padding:34px 40px; display:flex; justify-content:space-between; align-items:center;">
+    <div class="next-case" style="border:1px solid #e6e6e6; border-radius:14px; padding:34px 40px; display:flex; justify-content:space-between; align-items:center;">
       <div><div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8a8a8a; margin-bottom:8px;">Next case study</div><div style="font-family:'Newsreader',serif; font-size:28px;">JTBD in Data Management</div></div>
       <span style="font-family:'Newsreader',serif; font-size:36px; color:#46803e;">→</span>
     </div>
   </a>
 
-  <div style="border-top:1px solid #e6e6e6; margin-top:64px; padding:26px 56px; display:flex; justify-content:space-between; font-size:13px; color:#8a8a8a;">
+  <div class="footer" style="border-top:1px solid #e6e6e6; margin-top:64px; padding:26px 56px; display:flex; justify-content:space-between; font-size:13px; color:#8a8a8a;">
     <a href="Home.dc.html">← Back to home</a><span>lingyigee@gmail.com · linkedin.com/in/lingyige</span>
   </div>
 

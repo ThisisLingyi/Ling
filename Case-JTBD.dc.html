@@ -32,6 +32,11 @@
     .case-h1{ font-size:34px !important; }
     .hero-lead{ font-size:26px !important; white-space:normal !important; }
     .grid-3{ grid-template-columns:1fr !important; }
+    .roadmap-grid{ grid-template-columns:1fr !important; }
+    .roadmap-grid > div{ border-left:none !important; border-top:1px solid #e6e6e6 !important; }
+    .trace-row{ grid-template-columns:1fr !important; gap:0 !important; }
+    .trace-arrow{ height:30px !important; }
+    .trace-arrow{ transform:rotate(90deg); }
     .grid-2{ grid-template-columns:1fr !important; gap:16px !important; }
     .quote-box{ padding:36px 26px !important; }
     .quote-lead{ font-size:30px !important; }
@@ -43,7 +48,7 @@
 </style>
 <script src="./image-slot.js"></script>
 </helmet>
-<div style="font-family:'Archivo',sans-serif;">
+<div style="font-family: 'Archivo',sans-serif; position: absolute; left: 0px; top: -8px">
 <sc-if value="{{ locked }}" hint-placeholder-val="{{ true }}">
     <div style="position:fixed; inset:0; z-index:1000; background:#ffffff; display:flex; align-items:center; justify-content:center; font-family:'Archivo',sans-serif; padding:24px;">
       <div style="width:100%; max-width:360px; text-align:center;">
@@ -75,13 +80,16 @@
       <div style="width:40px; height:40px; border-radius:50%; overflow:hidden;"><img src="uploads/headshot.jpg" alt="Lingyi Ge" style="width:100%; height:100%; object-fit:cover; object-position:center 20%; display:block;"></div>
       <div style="font-size:14px; line-height:1.5;"><div>Lingyi Ge · <span style="color:#46803e;">Sole domain researcher · JTBD · cross-product synthesis · gap analysis</span></div><div style="color:#8a8a8a;">Six-month roadmap · 12 min read</div></div>
     </div>
-    <p style="font-size:12.5px; line-height:1.6; color:#9a9a9a; margin:16px 0 0;">Public portfolio version. Work performed as Senior UX Researcher at Splunk (AppDynamics &amp; Splunk). Customer and participant details anonymized; artifact visuals redacted or recreated; internal program names generalized where noted. Impact describes research contribution and observed use in cross-functional planning, not official product or roadmap commitments. Not an official employer communication.</p>
-    <p class="hero-lead" style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; line-height:1.2; color:#242424; margin:34px 0 16px; max-width:640px; white-space:nowrap;">From two product lines to one customer domain.</p>
+    <div style="border-left:3px solid #46803e; padding:6px 0 6px 24px; margin:34px 0 24px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#46803e; margin-bottom:14px;">Summary</div>
+      <p style="font-size:20px; line-height:1.65; color:#242424; margin:0; text-wrap:pretty;">I led a six month JTBD research program to create a unified Data Management foundation across Splunk Core and Observability after acquisition. As the sole domain researcher, I synthesized customer jobs across ingestion, routing, governance, cost control, and cross platform data flows, showing where the products shared a common customer purpose and where workflows needed to diverge. The work turned fragmented research into a reusable decision system of job maps, gap analysis, satisfaction scoring, and opportunity framing, helping PM, Design, Engineering, Sales, Marketing, and executives prioritize platform investments around customer jobs rather than isolated feature requests.</p>
+    </div>
+    <p class="hero-lead" style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; line-height:1.2; color:#242424; margin:44px 0 16px; max-width:640px; white-space:nowrap;">From two product lines to one customer domain.</p>
     <p style="font-size:19px; line-height:1.7; color:#333; margin:0; max-width:640px; text-wrap:pretty;">Post-acquisition, Splunk’s direction was unification, but Data Management research was still split across Splunk Core and observability. I mapped the jobs users hire both lines to perform, showed through synthesis where those jobs are shared at the top and diverge below, and built gap analysis and satisfaction scoring so PMs and designers could plan a unified DM experience without a one-size-fits-all UX.</p>
   </article>
 
   <figure style="max-width:960px; margin:0 auto; padding:0 24px 8px;">
-    <div style="border-radius:12px; overflow:hidden; border:1px solid #e6e6e6; background:#f7f7f5;"><img src="uploads/jtbd.png" alt="Redacted JTBD job map: ultimate job at top, big job and little jobs cascading down with emotional and social jobs annotated on one branch." style="display:block; width:100%; height:auto;"></div>
+    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/8;"><image-slot fit="contain" id="jtbd-hero" shape="rect" style="width:100%; height:100%;" placeholder="Two JTBD job maps side by side (Platform A · Platform B), shared ultimate job bracketed at top, forked little jobs below"></image-slot></div>
     <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Foundational artifacts for both product lines, same structure and comparable depth, before cross-product synthesis and gap analysis.</figcaption>
   </figure>
 
@@ -90,17 +98,19 @@
     <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; line-height:1.2; margin:0 0 20px;">Company direction vs. research reality</h2>
     <p>After AppDynamics moved into Splunk, unifying the data management experience became a company-level direction, not a nice-to-have. Customers were already treating ingestion, routing, governance, and observability data as one domain. Internally, it was still two product worlds with diverging research stories.</p>
     <p>Guided data ingestion (internal program: GDI) had been a top pain point for more than five years. The gap wasn’t missing research, it was parallel JTBD work in isolation: stakeholders exploring their own job maps, personas, journeys, and service maps without a shared source of truth.</p>
-    <h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:24px; margin:34px 0 4px;">What “Data Management” means at Splunk</h3>
-    <p style="margin-bottom:0;">DM is the end-to-end experience of getting organizational data into, through, and governed within the platform so teams can search, monitor, and act on it:</p>
   </article>
 
-  <div style="max-width:760px; margin:0 auto; padding:14px 24px 0;">
-    <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8a8a8a; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.7fr); gap:24px; padding-bottom:6px;"><span>DM area</span><span>What users are trying to do</span></div>
-    <div class="tbl-row"><span style="font-weight:600; font-size:15px; color:#242424;">Data ingestion &amp; onboarding</span><span style="font-size:15px; line-height:1.55; color:#6b6b6b;">Connect sources, configure pipelines, get data to the right destinations.</span></div>
-    <div class="tbl-row"><span style="font-weight:600; font-size:15px; color:#242424;">Data processing &amp; routing</span><span style="font-size:15px; line-height:1.55; color:#6b6b6b;">Parse, transform, route, and enrich data through the platform.</span></div>
-    <div class="tbl-row"><span style="font-weight:600; font-size:15px; color:#242424;">Agent &amp; connector management</span><span style="font-size:15px; line-height:1.55; color:#6b6b6b;">Deploy, monitor, and maintain collection agents across hybrid and cloud.</span></div>
-    <div class="tbl-row"><span style="font-weight:600; font-size:15px; color:#242424;">Data governance &amp; cost control</span><span style="font-size:15px; line-height:1.55; color:#6b6b6b;">Filter noise, manage retention, control ingest volume, stay within license.</span></div>
-    <div class="tbl-row" style="border-bottom:1px solid #e6e6e6;"><span style="font-weight:600; font-size:15px; color:#242424;">Cross-platform data experience</span><span style="font-size:15px; line-height:1.55; color:#6b6b6b;">Align data flows across Splunk Core and O11y (AppDynamics), especially post-integration.</span></div>
+  <div style="max-width:760px; margin:32px auto 0; padding:0 24px;">
+    <div style="background:#f4f4f2; border:1px solid #e6e6e6; border-radius:14px; padding:30px 32px;">
+      <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#9a9a9a; margin-bottom:12px;">Reference · What “Data Management” means at Splunk</div>
+      <p style="font-size:15px; line-height:1.6; color:#8a8a8a; margin:0 0 20px;">DM is the end-to-end experience of getting organizational data into, through, and governed within the platform so teams can search, monitor, and act on it:</p>
+      <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#a6a6a6; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.7fr); gap:24px; padding-bottom:6px;"><span>DM area</span><span>What users are trying to do</span></div>
+      <div class="tbl-row" style="border-top:1px solid #e0e0dd;"><span style="font-weight:600; font-size:15px; color:#555;">Data ingestion &amp; onboarding</span><span style="font-size:15px; line-height:1.55; color:#8a8a8a;">Connect sources, configure pipelines, get data to the right destinations.</span></div>
+      <div class="tbl-row" style="border-top:1px solid #e0e0dd;"><span style="font-weight:600; font-size:15px; color:#555;">Data processing &amp; routing</span><span style="font-size:15px; line-height:1.55; color:#8a8a8a;">Parse, transform, route, and enrich data through the platform.</span></div>
+      <div class="tbl-row" style="border-top:1px solid #e0e0dd;"><span style="font-weight:600; font-size:15px; color:#555;">Agent &amp; connector management</span><span style="font-size:15px; line-height:1.55; color:#8a8a8a;">Deploy, monitor, and maintain collection agents across hybrid and cloud.</span></div>
+      <div class="tbl-row" style="border-top:1px solid #e0e0dd;"><span style="font-weight:600; font-size:15px; color:#555;">Data governance &amp; cost control</span><span style="font-size:15px; line-height:1.55; color:#8a8a8a;">Filter noise, manage retention, control ingest volume, stay within license.</span></div>
+      <div class="tbl-row" style="border-top:1px solid #e0e0dd; border-bottom:none;"><span style="font-weight:600; font-size:15px; color:#555;">Cross-platform data experience</span><span style="font-size:15px; line-height:1.55; color:#8a8a8a;">Align data flows across Splunk Core and O11y (AppDynamics), especially post-integration.</span></div>
+    </div>
   </div>
 
   <article class="body-copy" style="max-width:680px; margin:0 auto; padding:36px 24px 0;">
@@ -124,15 +134,10 @@
     <p><strong style="font-weight:600; color:#242424;">What was at stake:</strong> Duplicate interviews, conflicting prioritization, and a compromised “unified” UX that served neither forwarder-first nor OTel-first paths, while customers still experienced DM as one broken handoff chain.</p>
   </article>
 
-  <figure style="max-width:900px; margin:28px auto 0; padding:0 24px;">
-    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/8;"><image-slot id="jtbd-before" shape="rect" style="width:100%; height:100%;" placeholder="Before state: DM domain areas with siloed JTBD artifacts (Core map, O11y map, separate personas/journeys) and no connective synthesis layer"></image-slot></div>
-    <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Pre-foundation: one domain for customers, many disconnected research stories internally, exactly when the company needed alignment.</figcaption>
-  </figure>
-
   <article class="body-copy" style="max-width:680px; margin:0 auto; padding:56px 24px 0;">
     <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#46803e; border-top:2px solid #46803e; padding-top:14px; margin-bottom:24px;">02 · My role expanded with the domain</div>
     <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; line-height:1.2; margin:0 0 20px;">From one product’s DM to both</h2>
-    <p style="margin-bottom:0;">I didn’t start as “domain researcher for all of DM.” My scope grew with the unification strategy.</p>
+    <p style="margin-bottom:0;">I didn’t start as “domain researcher for all of DM.” My scope grew with the confidence of unification strategy.</p>
   </article>
 
   <div style="max-width:760px; margin:14px auto 0; padding:0 24px;">
@@ -143,9 +148,8 @@
   </div>
 
   <article class="body-copy" style="max-width:680px; margin:0 auto; padding:26px 24px 0;">
-    <p>That transition was the pivot of this case: I had already seen O11y customers’ jobs up close. On Platform DM, I could ask whether Splunk Core and O11y were solving the same customer jobs, and whether unification should happen at the ultimate job, not at the feature checklist.</p>
     <div style="border-left:3px solid #46803e; padding:6px 0 6px 24px; margin:40px 0;">
-      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:30px; line-height:1.2; margin:0 0 16px;">The mandate</h2>
+      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:30px; line-height:1.2; margin:0 0 16px;">The needs</h2>
       <p style="margin-bottom:0;">The ask wasn’t another deck. It was research infrastructure to unify how the org understands DM.</p>
     </div>
     <ul>
@@ -168,7 +172,7 @@
   </div>
 
   <figure style="max-width:900px; margin:28px auto 0; padding:0 24px;">
-    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/8;"><image-slot id="jtbd-stakeholder" shape="rect" style="width:100%; height:100%;" placeholder="Stakeholder artifact map: JTBD core at center, six branches (PM/Exec, Sales/Marketing/Design, Design/Marketing, PM/Design/Eng/Exec, Exec, all six), revision loop from monthly share-outs"></image-slot></div>
+    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/8;"><image-slot fit="contain" id="jtbd-stakeholder" shape="rect" style="width:100%; height:100%;" placeholder="Stakeholder artifact map: JTBD core at center, six branches (PM/Exec, Sales/Marketing/Design, Design/Marketing, PM/Design/Eng/Exec, Exec, all six), revision loop from monthly share-outs"></image-slot></div>
     <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Research library architecture, designed for stakeholder use on day one, not “publish job map, hope PM finds it.”</figcaption>
   </figure>
 
@@ -183,14 +187,44 @@
     <ul style="margin-top:16px;">
       <li>Splunk Core guided-ingestion job map: platform onboarding path.</li>
       <li>O11y guided-ingestion job map: observability onboarding path.</li>
-      <li>~179 hours of JTBD research (interviews, synthesis, artifact build; aggregate fieldwork).</li>
+      <li>~30+ hours of JTBD research (interviews, synthesis, artifact build; aggregate fieldwork).</li>
       <li>Consistent map structure so teams could compare apples-to-apples.</li>
     </ul>
   </article>
 
-  <figure style="max-width:900px; margin:28px auto 0; padding:0 24px;">
-    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/8;"><image-slot id="jtbd-anatomy" shape="rect" style="width:100%; height:100%;" placeholder="Job map anatomy: Ultimate Job → Success measures → Big Job → Little Jobs → Parallel activities → Constraints → Emotional/social jobs"></image-slot></div>
-    <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Same structure applied to both product lines, a prerequisite for cross-product comparison.</figcaption>
+  <figure data-om-raster="true" style="max-width:1180px; margin:28px auto 0; padding:0 24px;">
+    <div style="margin-bottom:20px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#46803e; margin-bottom:10px;">Evidence-to-job trace</div>
+      <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:28px; line-height:1.2; margin:0;">How evidence became a prioritizable little job</h3>
+    </div>
+    <div class="trace-row" style="display:grid; grid-template-columns:1fr 34px 1fr 34px 1fr 34px 1fr 34px 1fr; align-items:stretch;">
+      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:20px; background:#fff; display:flex; flex-direction:column;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#9a9a9a; margin-bottom:10px;">1 · Participant evidence</div><p style="font-family:'Newsreader',serif; font-style:italic; font-size:16px; line-height:1.4; color:#242424; margin:0 0 auto;">“Teams filter data externally because cost controls arrive after ingestion.”</p><div style="font-family:'Space Mono',monospace; font-size:9px; color:#a6a6a6; margin-top:14px;">Anonymized composite observation</div></div>
+      <div class="trace-arrow" style="display:flex; align-items:center; justify-content:center; color:#c9c9c4; font-size:20px;">→</div>
+      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:20px; background:#fbfbfa; display:flex; flex-direction:column;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#9a9a9a; margin-bottom:10px;">2 · Research code</div><p style="font-size:16px; line-height:1.4; font-weight:600; color:#242424; margin:0;">Prevent avoidable ingest volume</p></div>
+      <div class="trace-arrow" style="display:flex; align-items:center; justify-content:center; color:#c9c9c4; font-size:20px;">→</div>
+      <div style="border:1px solid #cfe0cb; border-radius:12px; padding:20px; background:#f2f7f0; display:flex; flex-direction:column; position:relative;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#46803e; margin-bottom:10px;">3 · Little job</div><p style="font-size:16px; line-height:1.4; font-weight:600; color:#2f4d2a; margin:0;">Separate signal from noise before ingestion</p></div>
+      <div class="trace-arrow" style="display:flex; align-items:center; justify-content:center; color:#c9c9c4; font-size:20px;">→</div>
+      <div style="border:1px solid #e6e6e6; border-radius:12px; padding:20px; background:#fbfbfa; display:flex; flex-direction:column;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#9a9a9a; margin-bottom:10px;">4 · Cross-product synthesis</div><p style="font-size:15px; line-height:1.4; color:#333; margin:0;">Shared need across Core and O11y, with different implementation paths</p></div>
+      <div class="trace-arrow" style="display:flex; align-items:center; justify-content:center; color:#c9c9c4; font-size:20px;">→</div>
+      <div style="border:1px solid #ddd3ba; border-radius:12px; padding:20px; background:#fbf6e6; display:flex; flex-direction:column;"><div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#a5871d; margin-bottom:10px;">5 · Planning input</div><p style="font-size:15px; line-height:1.4; color:#333; margin:0 0 auto;">Evaluate pre-ingest filtering and cost-preview opportunities</p><div style="font-family:'Space Mono',monospace; font-size:9px; color:#a5871d; margin-top:14px;">Planning input, not a shipping commitment</div></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px; margin-top:14px;">
+      <span style="flex:none; font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:#a6a6a6;">Evidence provenance</span>
+      <span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,#cfcfc9 0,#cfcfc9 5px,transparent 5px,transparent 10px);"></span>
+      <span style="flex:none; font-family:'Space Mono',monospace; font-size:9.5px; color:#a6a6a6;">Fieldwork → code → job → synthesis → planning</span>
+    </div>
+    <div style="background:#f7f7f5; border-radius:10px; padding:16px 20px; margin-top:18px;"><p style="font-family:'Newsreader',serif; font-style:italic; font-size:17px; line-height:1.4; color:#242424; margin:0;">The little job, not the requested feature, became the unit of comparison.</p></div>
+    <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:14px;">A transparent evidence chain connected fieldwork to cross-product planning.</figcaption>
+  </figure>
+
+  <article class="body-copy" style="max-width:680px; margin:0 auto; padding:44px 24px 0;">
+    <h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:24px; margin:0 0 8px;">Where DM sits in the product</h3>
+    <p style="margin-bottom:0;">Onboarding is one step in a larger arc: teams plan and collect data, gather insights, then take action. My DM work concentrates on the collect-data stage, where the domain’s hardest jobs live.</p>
+  </article>
+
+  <figure style="max-width:900px; margin:20px auto 0; padding:0 24px;">
+    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/7;"><image-slot fit="contain" id="jtbd-product-context" shape="rect" style="width:100%; height:100%;" placeholder="Wide product job map: Planning / Collect Data → Gather Insights → Take Action, with a pink callout on Collect Data (‘it happens here’)"></image-slot></div>
+    <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Where the DM research sits in the whole product journey: the collect-data stage, upstream of insight and action.</figcaption>
   </figure>
 
   <div style="max-width:680px; margin:24px auto 0; padding:0 24px;">
@@ -202,17 +236,69 @@
     <p style="margin-bottom:0;">Within the longer post-acquisition timeline, I ran a six-month foundational roadmap in three phases.</p>
   </article>
 
-  <div style="max-width:820px; margin:16px auto 0; padding:0 24px;">
-    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px;" class="grid-3">
-      <div style="border-top:2px solid #46803e; padding-top:14px;"><div style="font-weight:600; font-size:13px; margin-bottom:2px;">Phase 01 · Foundation</div><div style="font-family:'Space Mono',monospace; font-size:10.5px; color:#8a8a8a; margin-bottom:10px;">Months 1–2</div><p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0 0 12px;">JTBD interviews; build both job maps.</p><div style="font-family:'Space Mono',monospace; font-size:11px; line-height:1.6; color:#8a8a8a;">Core + O11y maps · personas · initial journeys</div></div>
-      <div style="border-top:2px solid #46803e; padding-top:14px;"><div style="font-weight:600; font-size:13px; margin-bottom:2px;">Phase 02 · Alignment</div><div style="font-family:'Space Mono',monospace; font-size:10.5px; color:#8a8a8a; margin-bottom:10px;">Months 3–4</div><p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0 0 12px;">Cross-product synthesis; monthly share-outs.</p><div style="font-family:'Space Mono',monospace; font-size:11px; line-height:1.6; color:#8a8a8a;">Side-by-side comparison · Design/PM job alignment · exec readouts</div></div>
-      <div style="border-top:2px solid #46803e; padding-top:14px;"><div style="font-weight:600; font-size:13px; margin-bottom:2px;">Phase 03 · Action</div><div style="font-family:'Space Mono',monospace; font-size:10.5px; color:#8a8a8a; margin-bottom:10px;">Months 5–6</div><p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0 0 12px;">Gap analysis workshops; opportunity scoring.</p><div style="font-family:'Space Mono',monospace; font-size:11px; line-height:1.6; color:#8a8a8a;">Satisfaction scores · backlog-ready gaps · field-ready pain themes</div></div>
+  <figure data-om-raster="true" style="max-width:1180px; margin:24px auto 0; padding:0 24px;">
+    <div style="margin-bottom:22px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#46803e; margin-bottom:10px;">Program arc</div>
+      <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:28px; line-height:1.2; margin:0 0 4px;">From fragmented research to a unified Data Management foundation</h3>
+      <p style="font-size:14px; color:#8a8a8a; margin:0;">A six-month foundational JTBD program within a longer post-acquisition arc.</p>
     </div>
-  </div>
-
-  <figure style="max-width:900px; margin:28px auto 0; padding:0 24px;">
-    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/7;"><image-slot id="jtbd-timeline" shape="rect" style="width:100%; height:100%;" placeholder="Program timeline: acquisition → O11y JTBD → Platform JTBD → 179 hrs → socialize maps → gap analysis → opportunity score; six-month phase highlighted"></image-slot></div>
-    <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Six-month intensive program within a longer unification arc, socialized through monthly DM research share-outs.</figcaption>
+    <div class="roadmap-grid" style="display:grid; grid-template-columns:0.72fr 1fr 1fr 1fr; gap:0; align-items:stretch; border:1px solid #e6e6e6; border-radius:14px; overflow:hidden;">
+      <div style="background:#f4f4f2; padding:26px 22px; display:flex; flex-direction:column;">
+        <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#9a9a9a; margin-bottom:12px;">Context · before</div>
+        <p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0 0 18px;">Post-acquisition integration made a unified DM experience a strategic priority, but Core and O11y research still lived as separate narratives.</p>
+        <div style="margin-top:auto;">
+          <svg viewBox="0 0 150 60" style="width:100%; height:auto; display:block;">
+            <path d="M6,14 C60,14 78,30 140,30" fill="none" stroke="#b8b8b3" stroke-width="2"></path>
+            <path d="M6,46 C60,46 78,30 140,30" fill="none" stroke="#b8b8b3" stroke-width="2"></path>
+            <circle cx="140" cy="30" r="4" fill="#c026a6"></circle>
+            <text x="4" y="9" font-family="'Space Mono',monospace" font-size="8" fill="#9a9a9a">Core</text>
+            <text x="4" y="58" font-family="'Space Mono',monospace" font-size="8" fill="#9a9a9a">O11y</text>
+          </svg>
+          <div style="font-family:'Space Mono',monospace; font-size:9.5px; color:#a6a6a6; margin-top:6px;">Two research narratives converging</div>
+        </div>
+      </div>
+      <div style="background:#fbf0f8; padding:26px 22px; border-left:1px solid #f0dcea; display:flex; flex-direction:column;">
+        <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#c026a6; font-weight:700;">Phase 1 · Foundation</span></div>
+        <div style="font-family:'Space Mono',monospace; font-size:10px; color:#b06aa0; margin-bottom:14px;">Months 1–2</div>
+        <p style="font-size:16px; line-height:1.35; font-weight:600; color:#242424; margin:0 0 14px;">Built comparable JTBD foundations for Core and O11y.</p>
+        <ul style="margin:0 0 16px; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px;">
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c026a6;">·</span>Interviewed admins, engineers, architects, and security stakeholders</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c026a6;">·</span>Created two consistently structured job maps</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c026a6;">·</span>Developed personas and initial journeys</li>
+        </ul>
+        <div style="margin-top:auto;"><span style="display:inline-block; font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.03em; color:#8a2d75; background:#f6dcef; border-radius:100px; padding:6px 12px;">~179 hrs foundational JTBD research</span></div>
+      </div>
+      <div style="background:#fdf2ea; padding:26px 22px; border-left:1px solid #f4dfcd; display:flex; flex-direction:column; position:relative;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:#c026a6;"></div>
+        <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#c26a1e; font-weight:700;">Phase 2 · Alignment</span><span style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:#c026a6; border-radius:100px; padding:3px 9px;">Turning point</span></div>
+        <div style="font-family:'Space Mono',monospace; font-size:10px; color:#bb8355; margin-bottom:14px;">Months 3–4</div>
+        <p style="font-size:16px; line-height:1.35; font-weight:600; color:#242424; margin:0 0 14px;">Compared both product lines to identify shared and divergent jobs.</p>
+        <ul style="margin:0 0 16px; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px;">
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c26a1e;">·</span>Unified the ultimate-job narrative</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c26a1e;">·</span>Identified where little-job paths needed to fork</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c26a1e;">·</span>Socialized findings through monthly DM share-outs</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c26a1e;">·</span>Aligned PM and Design around a common job language</li>
+        </ul>
+        <div style="margin-top:auto; border-top:1px dashed #e2c6ab; padding-top:12px;"><p style="font-family:'Newsreader',serif; font-style:italic; font-size:14px; line-height:1.4; color:#8a2d75; margin:0;">One customer domain; different execution paths where technical realities diverge.</p></div>
+      </div>
+      <div style="background:#fbf6e6; padding:26px 22px; border-left:1px solid #efe4c2; display:flex; flex-direction:column;">
+        <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#a5871d; font-weight:700;">Phase 3 · Action</span></div>
+        <div style="font-family:'Space Mono',monospace; font-size:10px; color:#b0973b; margin-bottom:14px;">Months 5–6</div>
+        <p style="font-size:16px; line-height:1.35; font-weight:600; color:#242424; margin:0 0 14px;">Turned job maps into a repeatable prioritization system.</p>
+        <ul style="margin:0 0 16px; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px;">
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#a5871d;">·</span>Ran gap-analysis workshops by little job</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#a5871d;">·</span>Added user-satisfaction assessment</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#a5871d;">·</span>Introduced opportunity scoring</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#a5871d;">·</span>Connected underserved jobs to PM, Design, and Eng planning</li>
+        </ul>
+      </div>
+    </div>
+    <div style="background:#242424; color:#fff; border-radius:14px; padding:26px 32px; margin-top:14px; display:flex; flex-wrap:wrap; align-items:center; gap:14px 28px;">
+      <div style="flex:none;"><div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#8fce85; margin-bottom:4px;">Outcome</div><div style="font-family:'Newsreader',serif; font-size:22px; line-height:1.2;">Research infrastructure established</div></div>
+      <div style="flex:1; min-width:260px; font-size:14px; line-height:1.5; color:rgba(255,255,255,.85);">One domain narrative · forked execution paths · comparable gaps · shared prioritization language</div>
+      <div style="flex-basis:100%; font-family:'Space Mono',monospace; font-size:10.5px; color:rgba(255,255,255,.5);">Research contribution and observed planning use, not a product roadmap commitment.</div>
+    </div>
+    <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:14px;">Six-month foundational program within a longer post-acquisition arc: comparable Core and O11y job maps enabled cross-product synthesis, gap analysis, and opportunity scoring.</figcaption>
   </figure>
 
   <article class="body-copy" style="max-width:680px; margin:0 auto; padding:44px 24px 0;">
@@ -226,7 +312,7 @@
   </article>
 
   <figure style="max-width:900px; margin:28px auto 0; padding:0 24px;">
-    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/8;"><image-slot id="jtbd-branch" shape="rect" style="width:100%; height:100%;" placeholder="Zoomed job-map branch: ultimate → big → little job with gap marker on pre-ingest filtering step"></image-slot></div>
+    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/8;"><image-slot fit="contain" id="jtbd-branch" shape="rect" style="width:100%; height:100%;" placeholder="Zoomed job-map branch: ultimate → big → little job with gap marker on pre-ingest filtering step"></image-slot></div>
     <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Little jobs became the unit of comparison, gap analysis, and prioritization, not feature names.</figcaption>
   </figure>
 
@@ -261,12 +347,12 @@
   </article>
 
   <figure style="max-width:900px; margin:28px auto 0; padding:0 24px;">
-    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/8;"><image-slot id="jtbd-sidebyside" shape="rect" style="width:100%; height:100%;" placeholder="Side-by-side job maps: shared ultimate job at top, diverging little-job branches below for Core vs. O11y"></image-slot></div>
+    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/8;"><image-slot fit="contain" id="jtbd-sidebyside" shape="rect" style="width:100%; height:100%;" placeholder="Side-by-side job maps: shared ultimate job at top, diverging little-job branches below for Core vs. O11y"></image-slot></div>
     <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Comparison artifact from monthly share-outs, used to resolve “same job or different job?” in joint Core and O11y planning.</figcaption>
   </figure>
 
   <figure style="max-width:900px; margin:20px auto 0; padding:0 24px;">
-    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/7;"><image-slot id="jtbd-journey" shape="rect" style="width:100%; height:100%;" placeholder="User journey map spanning DM areas: ingestion → processing → governance, cross-platform handoff points annotated"></image-slot></div>
+    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/7;"><image-slot fit="contain" id="jtbd-journey" shape="rect" style="width:100%; height:100%;" placeholder="User journey map spanning DM areas: ingestion → processing → governance, cross-platform handoff points annotated"></image-slot></div>
     <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Journey maps connected little jobs to flows Design could prototype, after comparison showed where paths diverge.</figcaption>
   </figure>
 
@@ -337,6 +423,11 @@
     <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Gap and satisfaction audit: how designers and PMs evaluated feature support for each job step.</figcaption>
   </figure>
 
+  <figure style="max-width:900px; margin:20px auto 0; padding:0 24px;">
+    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/9;"><image-slot fit="contain" id="jtbd-gap-workshop" shape="rect" style="width:100%; height:100%;" placeholder="Three-panel gap workshop: current features per little job · missing features · satisfaction scoring"></image-slot></div>
+    <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Live gap workshop: designers and PMs scored current features, named what’s missing, and rated satisfaction per little job.</figcaption>
+  </figure>
+
   <article class="body-copy" style="max-width:680px; margin:0 auto; padding:44px 24px 0;">
     <h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:24px; margin:0 0 16px;">From satisfaction to opportunity scoring</h3>
     <p>Gap workshops fed a Job Opportunity Score, combining job importance, user difficulty, and satisfaction gaps to make portfolio tradeoffs visible in exec readouts. Planned enablement followed: job stories in PRDs, design pilots, and a JTBD resource hub so teams could self-serve the library.</p>
@@ -389,7 +480,7 @@
   </article>
 
   <figure style="max-width:900px; margin:28px auto 0; padding:0 24px;">
-    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/8;"><image-slot id="jtbd-library" shape="rect" style="width:100%; height:100%;" placeholder="Research library grid: Core map · O11y map · comparison · gap framework · opportunity score · share-out loop · six stakeholder outputs"></image-slot></div>
+    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/8;"><image-slot fit="contain" id="jtbd-library" shape="rect" style="width:100%; height:100%;" placeholder="Research library grid: Core map · O11y map · comparison · gap framework · opportunity score · share-out loop · six stakeholder outputs"></image-slot></div>
     <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Library as system: two product foundations, one synthesis layer, six ways to act on it.</figcaption>
   </figure>
 

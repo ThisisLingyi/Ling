@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#ffffff; color:#242424; -webkit-font-smoothing:antialiased; }
+  a{ color:inherit; text-decoration:none; }
+  a:hover{ opacity:.7; }
+  ::selection{ background:#46803e; color:#fff; }
+  .body-copy p{ font-size:19px; line-height:1.7; color:#333; margin:0 0 22px; }
+  .body-copy p:last-child{ margin-bottom:0; }
+  .body-copy ul{ margin:0 0 22px; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:12px; }
+  .body-copy ul li{ font-size:18px; line-height:1.6; color:#333; display:flex; gap:12px; }
+  .body-copy ul li::before{ content:"•"; color:#46803e; flex:none; }
+  img{ max-width:100%; }
+  .diff-row{ display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr); gap:20px; border-top:1px solid #e6e6e6; padding:14px 0; }
+  @media (max-width:760px){
+    .nav{ flex-wrap:wrap; gap:12px 0; padding:14px 20px !important; }
+    .nav-role{ display:none !important; }
+    .nav-links{ gap:14px !important; font-size:13px !important; flex-wrap:wrap; }
+    .case-h1{ font-size:34px !important; }
+    .hero-lead{ font-size:26px !important; }
+    .roadmap-grid{ grid-template-columns:1fr !important; }
+    .roadmap-grid > div{ border-left:none !important; border-top:1px solid #e6e6e6 !important; }
+    .diff-row{ grid-template-columns:1fr !important; gap:4px !important; }
+    .grid-3{ grid-template-columns:1fr !important; }
+    .next-case{ flex-direction:column !important; gap:16px !important; align-items:flex-start !important; padding:26px 24px !important; }
+    .footer{ flex-direction:column !important; gap:6px !important; padding:24px 20px !important; }
+  }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+<div style="font-family:'Archivo',sans-serif;">
+<sc-if value="{{ locked }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed; inset:0; z-index:1000; background:#ffffff; display:flex; align-items:center; justify-content:center; font-family:'Archivo',sans-serif; padding:24px;">
+      <div style="width:100%; max-width:360px; text-align:center;">
+        <div style="font-family:'Newsreader',serif; font-weight:500; font-size:34px; margin-bottom:10px;">Lingyi Ge</div>
+        <p style="font-size:15px; line-height:1.6; color:#6b6b6b; margin:0 0 26px;">This portfolio is private. Enter the password to continue.</p>
+        <input type="password" placeholder="Password" autoComplete="off" value="{{ pw }}" onChange="{{ onPwInput }}" onKeyDown="{{ onPwKey }}" style="width:100%; padding:13px 16px; font-size:15px; font-family:inherit; color:#242424; border:1px solid #cfcfcf; border-radius:10px; outline:none; margin:0 0 12px;">
+        <button onClick="{{ onSubmit }}" style="width:100%; padding:13px 16px; font-size:15px; font-family:inherit; font-weight:600; color:#fff; background:#46803e; border:none; border-radius:10px; cursor:pointer;">Enter</button>
+        <sc-if value="{{ showError }}" hint-placeholder-val="{{ false }}"><p style="font-size:13px; color:#c0392b; margin:14px 0 0;">Incorrect password. Try again.</p></sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <nav class="nav" style="position:sticky; top:0; z-index:40; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); display:flex; justify-content:space-between; align-items:center; padding:20px 56px; border-bottom:1px solid #e6e6e6;">
+    <a href="Home.dc.html" style="display:flex; align-items:baseline; gap:11px; text-decoration:none;"><span style="font-family:'Newsreader',serif; font-weight:500; font-size:24px; color:#242424;">Lingyi Ge</span><span class="nav-role" style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#8a8a8a; font-weight:500;">Senior UX Researcher</span></a>
+    <div class="nav-links" style="display:flex; gap:26px; align-items:center; font-size:14px; color:#6b6b6b;">
+      <a href="Home.dc.html#work">Work</a><a href="Home.dc.html#about">About</a>
+      <a href="uploads/Lingyi_Ge_Senior_UXR_Resume_AI.docx.pdf" download="" target="_blank">Résumé</a>
+      <a href="mailto:lingyigee@gmail.com" style="background:transparent; color:#242424; border:1px solid #cfcfcf; padding:8px 18px; border-radius:100px; font-size:13px;">Get in touch</a>
+    </div>
+  </nav>
+
+  <article style="max-width:760px; margin:0 auto; padding:64px 24px 40px;">
+    <a href="Home.dc.html" style="font-size:13px; color:#46803e; letter-spacing:.02em;">← All work</a>
+    <div style="font-size:13px; color:#6b6b6b; margin:20px 0 14px;">Case study · Jobs-to-be-Done · Data Management</div>
+    <h1 class="case-h1" style="font-family:'Newsreader',serif; font-weight:400; font-size:52px; line-height:1.12; letter-spacing:-.01em; margin:0 0 20px;">Unifying Data Management research across two product lines</h1>
+    <div style="font-family:'Space Mono',monospace; font-size:12.5px; line-height:1.8; color:#6b6b6b; margin-bottom:6px;">Sole domain UXR · Splunk Data Management · 6-month foundational program</div>
+    <div style="display:flex; align-items:center; gap:12px; padding:20px 0; border-top:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6;">
+      <div style="width:40px; height:40px; border-radius:50%; overflow:hidden;"><img src="uploads/headshot.jpg" alt="Lingyi Ge" style="width:100%; height:100%; object-fit:cover; object-position:center 20%; display:block;"></div>
+      <div style="font-size:14px; line-height:1.5;"><div>Lingyi Ge · <span style="color:#46803e;">Sole domain researcher · JTBD · cross-product synthesis · gap analysis</span></div><div style="color:#8a8a8a;">Six-month roadmap · 6 min read</div></div>
+    </div>
+    <div style="border-left:3px solid #46803e; padding:6px 0 6px 24px; margin:34px 0 0;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#46803e; margin-bottom:14px;">Summary</div>
+      <p style="font-size:20px; line-height:1.65; color:#242424; margin:0; text-wrap:pretty;">I unified fragmented research across two product lines, discovered what should be shared versus product-specific, and created a scoring system that made foundational JTBD research usable in planning. As the sole Data Management researcher spanning Splunk Core and Observability, I ran a six-month program that turned parallel job maps into one shared job language, with forked execution paths and a repeatable path from evidence to prioritization.</p>
+    </div>
+  </article>
+
+  <article class="body-copy" style="max-width:680px; margin:0 auto; padding:44px 24px 0;">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#46803e; border-top:2px solid #46803e; padding-top:14px; margin-bottom:24px;">01 · The organizational problem</div>
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; line-height:1.2; margin:0 0 20px;">Why this research needed to exist</h2>
+    <p>After the AppDynamics integration, Splunk wanted a unified Data Management experience, but Core and Observability teams were working from separate research narratives. Customers experienced one domain; internally, teams lacked a shared understanding of the jobs that should, or should not, be unified.</p>
+    <p style="margin-bottom:0;">The consequence was concrete: duplicated interviews, conflicting prioritization, and the risk of a compromised “unified” UX that served neither forwarder-first nor OTel-first workflows.</p>
+  </article>
+
+  <figure data-om-raster="true" style="max-width:820px; margin:28px auto 0; padding:0 24px;">
+    <div style="border:1px solid #e6e6e6; border-radius:14px; padding:32px; display:grid; grid-template-columns:1fr auto 1fr; gap:24px; align-items:center;">
+      <div style="text-align:center;">
+        <div style="border:1px solid #e6e6e6; border-radius:10px; padding:18px 14px; background:#fbfbfa;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#8a8a8a; margin-bottom:6px;">Splunk Core</div><div style="font-size:13px; line-height:1.4; color:#6b6b6b;">Own job maps · personas · journeys</div></div>
+        <div style="font-family:'Space Mono',monospace; font-size:10px; color:#b4472e; margin-top:10px;">Separate narrative</div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:6px; color:#b4472e;"><span style="font-size:22px; line-height:1;">✕</span><span style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.06em; text-transform:uppercase;">No shared layer</span></div>
+      <div style="text-align:center;">
+        <div style="border:1px solid #e6e6e6; border-radius:10px; padding:18px 14px; background:#fbfbfa;"><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#8a8a8a; margin-bottom:6px;">Observability</div><div style="font-size:13px; line-height:1.4; color:#6b6b6b;">Own job maps · personas · journeys</div></div>
+        <div style="font-family:'Space Mono',monospace; font-size:10px; color:#b4472e; margin-top:10px;">Separate narrative</div>
+      </div>
+    </div>
+    <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Before-state: one domain for customers, two disconnected research foundations internally.</figcaption>
+  </figure>
+
+  <article class="body-copy" style="max-width:680px; margin:0 auto; padding:56px 24px 0;">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#46803e; border-top:2px solid #46803e; padding-top:14px; margin-bottom:24px;">02 · My mandate and approach</div>
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; line-height:1.2; margin:0 0 20px;">What I owned</h2>
+    <p style="margin-bottom:0;">As the sole researcher spanning both product lines, I led a six-month foundational JTBD program: comparable job maps for Core and Observability, cross-product synthesis, and a prioritization system built on the findings. I interviewed admins, engineers, architects, and security stakeholders, then moved the library through three phases, Foundation → Alignment → Action, socialized in monthly DM share-outs.</p>
+  </article>
+
+  <figure data-om-raster="true" style="max-width:1180px; margin:24px auto 0; padding:0 24px;">
+    <div style="margin-bottom:22px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#46803e; margin-bottom:10px;">Program arc</div>
+      <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:28px; line-height:1.2; margin:0 0 4px;">From fragmented research to a unified Data Management foundation</h3>
+      <p style="font-size:14px; color:#8a8a8a; margin:0;">A six-month foundational JTBD program within a longer post-acquisition arc.</p>
+    </div>
+    <div class="roadmap-grid" style="display:grid; grid-template-columns:0.72fr 1fr 1fr 1fr; gap:0; align-items:stretch; border:1px solid #e6e6e6; border-radius:14px; overflow:hidden;">
+      <div style="background:#f4f4f2; padding:26px 22px; display:flex; flex-direction:column;">
+        <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#9a9a9a; margin-bottom:12px;">Context · before</div>
+        <p style="font-size:14px; line-height:1.5; color:#6b6b6b; margin:0 0 18px;">Post-acquisition integration made a unified DM experience a strategic priority, but Core and O11y research still lived as separate narratives.</p>
+        <div style="margin-top:auto;">
+          <svg viewBox="0 0 150 60" style="width:100%; height:auto; display:block;">
+            <path d="M6,14 C60,14 78,30 140,30" fill="none" stroke="#b8b8b3" stroke-width="2"></path>
+            <path d="M6,46 C60,46 78,30 140,30" fill="none" stroke="#b8b8b3" stroke-width="2"></path>
+            <circle cx="140" cy="30" r="4" fill="#c026a6"></circle>
+            <text x="4" y="9" font-family="'Space Mono',monospace" font-size="8" fill="#9a9a9a">Core</text>
+            <text x="4" y="58" font-family="'Space Mono',monospace" font-size="8" fill="#9a9a9a">O11y</text>
+          </svg>
+          <div style="font-family:'Space Mono',monospace; font-size:9.5px; color:#a6a6a6; margin-top:6px;">Two research narratives converging</div>
+        </div>
+      </div>
+      <div style="background:#fbf0f8; padding:26px 22px; border-left:1px solid #f0dcea; display:flex; flex-direction:column;">
+        <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#c026a6; font-weight:700;">Phase 1 · Foundation</span></div>
+        <div style="font-family:'Space Mono',monospace; font-size:10px; color:#b06aa0; margin-bottom:14px;">Months 1–2</div>
+        <p style="font-size:16px; line-height:1.35; font-weight:600; color:#242424; margin:0 0 14px;">Built comparable JTBD foundations for Core and O11y.</p>
+        <ul style="margin:0 0 16px; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px;">
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c026a6;">·</span>Interviewed admins, engineers, architects, and security stakeholders</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c026a6;">·</span>Created two consistently structured job maps</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c026a6;">·</span>Developed personas and initial journeys</li>
+        </ul>
+        <div style="margin-top:auto;"><span style="display:inline-block; font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.03em; color:#8a2d75; background:#f6dcef; border-radius:100px; padding:6px 12px;">Multi-stakeholder interviews across both lines</span></div>
+      </div>
+      <div style="background:#fdf2ea; padding:26px 22px; border-left:1px solid #f4dfcd; display:flex; flex-direction:column; position:relative;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:#c026a6;"></div>
+        <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#c26a1e; font-weight:700;">Phase 2 · Alignment</span><span style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:#c026a6; border-radius:100px; padding:3px 9px;">Turning point</span></div>
+        <div style="font-family:'Space Mono',monospace; font-size:10px; color:#bb8355; margin-bottom:14px;">Months 3–4</div>
+        <p style="font-size:16px; line-height:1.35; font-weight:600; color:#242424; margin:0 0 14px;">Compared both product lines to identify shared and divergent jobs.</p>
+        <ul style="margin:0 0 16px; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px;">
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c26a1e;">·</span>Unified the ultimate-job narrative</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c26a1e;">·</span>Identified where little-job paths needed to fork</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c26a1e;">·</span>Socialized findings through monthly DM share-outs</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#c26a1e;">·</span>Aligned PM and Design around a common job language</li>
+        </ul>
+        <div style="margin-top:auto; border-top:1px dashed #e2c6ab; padding-top:12px;"><p style="font-family:'Newsreader',serif; font-style:italic; font-size:14px; line-height:1.4; color:#8a2d75; margin:0;">One customer domain; different execution paths where technical realities diverge.</p></div>
+      </div>
+      <div style="background:#fbf6e6; padding:26px 22px; border-left:1px solid #efe4c2; display:flex; flex-direction:column;">
+        <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#a5871d; font-weight:700;">Phase 3 · Action</span></div>
+        <div style="font-family:'Space Mono',monospace; font-size:10px; color:#b0973b; margin-bottom:14px;">Months 5–6</div>
+        <p style="font-size:16px; line-height:1.35; font-weight:600; color:#242424; margin:0 0 14px;">Turned job maps into a repeatable prioritization system.</p>
+        <ul style="margin:0 0 16px; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px;">
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#a5871d;">·</span>Ran gap-analysis workshops by little job</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#a5871d;">·</span>Added user-satisfaction assessment</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#a5871d;">·</span>Introduced opportunity scoring</li>
+          <li style="font-size:13px; line-height:1.45; color:#6b6b6b; display:flex; gap:8px;"><span style="color:#a5871d;">·</span>Connected underserved jobs to PM, Design, and Eng planning</li>
+        </ul>
+      </div>
+    </div>
+    <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:14px;">Six-month foundational program within a longer post-acquisition arc: comparable Core and O11y job maps enabled cross-product synthesis, gap analysis, and opportunity scoring.</figcaption>
+  </figure>
+
+  <article class="body-copy" style="max-width:680px; margin:0 auto; padding:56px 24px 0;">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#46803e; border-top:2px solid #46803e; padding-top:14px; margin-bottom:24px;">03 · The turning-point insight</div>
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; line-height:1.2; margin:0 0 20px;">Shared job, forked workflows</h2>
+    <p>Once both maps existed, comparison, not assertion, made the strategy credible. Core and Observability customers shared the same ultimate job and many emotional outcomes, but their little jobs diverged where technical workflows differed.</p>
+    <div style="background:#f2f7f0; border:1px solid #cfe0cb; border-radius:12px; padding:26px 28px; margin:8px 0 26px;">
+      <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#46803e; margin-bottom:8px;">Shared ultimate job</div>
+      <p style="font-size:18px !important; line-height:1.5 !important; color:#242424 !important; margin:0 0 16px !important;">Ensure the right organizational data is available in the platform for search, analytics, and operations, reliably and cost-effectively.</p>
+      <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#46803e; margin-bottom:8px;">One concrete shared little job</div>
+      <p style="font-size:18px !important; line-height:1.5 !important; color:#242424 !important; margin:0 !important;">Separate signal from noise before ingestion, so teams aren’t paying to index low-value telemetry.</p>
+    </div>
+    <p style="margin-bottom:0;">Where the paths diverged mattered just as much:</p>
+  </article>
+
+  <div style="max-width:820px; margin:16px auto 0; padding:0 24px;">
+    <div class="diff-row" style="border-top:none; padding-bottom:6px; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#8a8a8a;"><span>Dimension</span><span>Splunk Core</span><span>Observability</span></div>
+    <div class="diff-row"><span style="font-weight:600; font-size:15px; color:#242424;">Data types</span><span style="font-size:15px; color:#6b6b6b;">Logs, metrics (limited)</span><span style="font-size:15px; color:#6b6b6b;">Metrics, distributed traces</span></div>
+    <div class="diff-row"><span style="font-weight:600; font-size:15px; color:#242424;">Connection methods</span><span style="font-size:15px; color:#6b6b6b;">Universal / heavy forwarder</span><span style="font-size:15px; color:#6b6b6b;">OpenTelemetry</span></div>
+    <div class="diff-row" style="border-bottom:1px solid #e6e6e6;"><span style="font-weight:600; font-size:15px; color:#242424;">Agent management</span><span style="font-size:15px; color:#6b6b6b;">Limited native tooling</span><span style="font-size:15px; color:#6b6b6b;">Richer agent lifecycle</span></div>
+  </div>
+
+  <article class="body-copy" style="max-width:680px; margin:0 auto; padding:26px 24px 0;">
+    <div style="background:#f7f7f5; border-radius:12px; padding:24px 26px;">
+      <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:8px;">Product implication</div>
+      <p style="font-size:17px !important; line-height:1.6 !important; color:#242424 !important; margin:0 !important;">Unification required one job language with distinct execution paths, not one onboarding flow for everyone. The ultimate-job narrative should be unified; little jobs and journeys must fork where technical reality diverges.</p>
+    </div>
+  </article>
+
+  <figure data-om-raster="true" style="max-width:1080px; margin:28px auto 0; padding:0 24px;">
+    <div style="border:1px solid #e6e6e6; border-radius:14px; padding:32px 30px 30px;">
+      <div style="max-width:560px; margin:0 auto 8px; background:#f2f7f0; border:1px solid #cfe0cb; border-radius:12px; padding:16px 20px; text-align:center;">
+        <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:#46803e; margin-bottom:5px;">Shared ultimate job</div>
+        <div style="font-family:'Newsreader',serif; font-size:17px; line-height:1.35; color:#2f4d2a;">Get the right organizational data into the platform, reliably and cost-effectively</div>
+      </div>
+      <div style="display:flex; justify-content:center;">
+        <svg viewBox="0 0 200 34" style="width:200px; height:auto; display:block;"><path d="M100,2 L100,10 M100,10 L40,10 L40,32 M100,10 L160,10 L160,32" fill="none" stroke="#cfcfc9" stroke-width="1.5"></path></svg>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+        <div style="border:1px solid #e6e6e6; border-radius:12px; overflow:hidden;">
+          <div style="background:#f4f4f2; padding:12px 18px; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#242424; border-bottom:1px solid #e6e6e6;">Splunk Core</div>
+          <div style="padding:16px 18px;">
+            <div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:#8a8a8a; margin-bottom:10px;">Big job · onboard &amp; maintain sources</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <div style="font-size:13px; line-height:1.4; color:#333; background:#f2f7f0; border:1px solid #cfe0cb; border-radius:7px; padding:9px 12px;">Separate signal from noise before ingestion <span style="font-family:'Space Mono',monospace; font-size:9px; color:#46803e;">· shared</span></div>
+              <div style="font-size:13px; line-height:1.4; color:#333; border:1px solid #e6e6e6; border-radius:7px; padding:9px 12px;">Configure universal / heavy forwarders</div>
+              <div style="font-size:13px; line-height:1.4; color:#333; border:1px solid #e6e6e6; border-radius:7px; padding:9px 12px;">Run multi-step parsing &amp; routing</div>
+              <div style="font-size:13px; line-height:1.4; color:#333; border:1px solid #e6e6e6; border-radius:7px; padding:9px 12px;">Manage agents with limited native tooling</div>
+            </div>
+          </div>
+        </div>
+        <div style="border:1px solid #e6e6e6; border-radius:12px; overflow:hidden;">
+          <div style="background:#f4f4f2; padding:12px 18px; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#242424; border-bottom:1px solid #e6e6e6;">Observability</div>
+          <div style="padding:16px 18px;">
+            <div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:#8a8a8a; margin-bottom:10px;">Big job · onboard &amp; maintain sources</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <div style="font-size:13px; line-height:1.4; color:#333; background:#f2f7f0; border:1px solid #cfe0cb; border-radius:7px; padding:9px 12px;">Separate signal from noise before ingestion <span style="font-family:'Space Mono',monospace; font-size:9px; color:#46803e;">· shared</span></div>
+              <div style="font-size:13px; line-height:1.4; color:#333; border:1px solid #ecdcb3; background:#fbf6e6; border-radius:7px; padding:9px 12px;">Instrument via OpenTelemetry <span style="font-family:'Space Mono',monospace; font-size:9px; color:#a5871d;">· forks</span></div>
+              <div style="font-size:13px; line-height:1.4; color:#333; border:1px solid #ecdcb3; background:#fbf6e6; border-radius:7px; padding:9px 12px;">Handle metrics &amp; distributed traces <span style="font-family:'Space Mono',monospace; font-size:9px; color:#a5871d;">· forks</span></div>
+              <div style="font-size:13px; line-height:1.4; color:#333; border:1px solid #ecdcb3; background:#fbf6e6; border-radius:7px; padding:9px 12px;">Use richer agent lifecycle tooling <span style="font-family:'Space Mono',monospace; font-size:9px; color:#a5871d;">· forks</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; margin-top:18px; font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a;">
+        <span style="display:flex; align-items:center; gap:6px;"><span style="width:11px; height:11px; border-radius:3px; background:#f2f7f0; border:1px solid #cfe0cb; display:inline-block;"></span>Shared little job</span>
+        <span style="display:flex; align-items:center; gap:6px;"><span style="width:11px; height:11px; border-radius:3px; background:#fbf6e6; border:1px solid #ecdcb3; display:inline-block;"></span>Product-specific (forked)</span>
+      </div>
+    </div>
+    <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Side-by-side comparison: shared jobs at the top, divergent branches highlighted below, used to resolve “same job or different job?” in joint planning.</figcaption>
+  </figure>
+
+  <article class="body-copy" style="max-width:680px; margin:0 auto; padding:56px 24px 0;">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#46803e; border-top:2px solid #46803e; padding-top:14px; margin-bottom:24px;">04 · Making the research actionable</div>
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; line-height:1.2; margin:0 0 20px;">Beyond a job map</h2>
+    <p>Job maps alone don’t create action. I introduced a gap-analysis framework that evaluated current product support, missing capabilities, user satisfaction, and ownership for each little job. Opportunity scoring then let PM, Design, and Engineering discuss investment using the same evidence.</p>
+    <div style="background:#fbf6ec; border:1px solid #ede0c4; border-radius:10px; padding:18px 20px;">
+      <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#a5871d; margin-bottom:8px;">Worked example</div>
+      <p style="font-size:16px !important; line-height:1.6 !important; color:#5f4f24 !important; margin:0 !important;">Users needed to separate signal from noise before ingestion, but controls arrived too late. The job scored low on satisfaction and became an explicit planning input for pre-ingestion filtering and cost-preview exploration.</p>
+    </div>
+  </article>
+
+  <figure data-om-raster="true" style="max-width:1080px; margin:28px auto 0; padding:0 24px;">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#46803e; margin-bottom:14px;">Gap analysis framework</div>
+    <div style="border:1px solid #e6e6e6; border-radius:14px; overflow:hidden;">
+      <div style="overflow-x:auto;">
+        <div style="min-width:840px;">
+          <div style="display:grid; grid-template-columns:1.5fr 1.3fr 1.5fr .8fr 1fr; background:#242424;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.85); padding:13px 16px;">Little job</div>
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.85); padding:13px 16px;">Current capability</div>
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.85); padding:13px 16px;">What’s missing</div>
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.85); padding:13px 16px;">Satisfaction</div>
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.85); padding:13px 16px;">Owner</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1.5fr 1.3fr 1.5fr .8fr 1fr; align-items:start;">
+            <div style="font-size:13px; line-height:1.5; font-weight:600; color:#242424; padding:15px 16px;">Separate signal from noise before ingestion</div>
+            <div style="font-size:13px; line-height:1.5; color:#6b6b6b; padding:15px 16px;">Post-ingest filtering only</div>
+            <div style="font-size:13px; line-height:1.5; color:#444; padding:15px 16px;">In-product pre-ingest filter and cost preview</div>
+            <div style="padding:15px 16px;"><span style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:#b4472e; background:#f7efec; border:1px solid #e6ccc3; border-radius:100px; padding:4px 10px;">Low</span></div>
+            <div style="font-size:13px; line-height:1.5; color:#444; padding:15px 16px;">PM + Design</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1.5fr 1.3fr 1.5fr .8fr 1fr; align-items:start; border-top:1px solid #eee;">
+            <div style="font-size:13px; line-height:1.5; font-weight:600; color:#242424; padding:15px 16px;">Explain cost before data lands</div>
+            <div style="font-size:13px; line-height:1.5; color:#6b6b6b; padding:15px 16px;">Bill visible after ingest</div>
+            <div style="font-size:13px; line-height:1.5; color:#444; padding:15px 16px;">Volume and cost preview at config time</div>
+            <div style="padding:15px 16px;"><span style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:#b4472e; background:#f7efec; border:1px solid #e6ccc3; border-radius:100px; padding:4px 10px;">Low</span></div>
+            <div style="font-size:13px; line-height:1.5; color:#444; padding:15px 16px;">PM + Eng</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1.5fr 1.3fr 1.5fr .8fr 1fr; align-items:start; border-top:1px solid #eee;">
+            <div style="font-size:13px; line-height:1.5; font-weight:600; color:#242424; padding:15px 16px;">Onboard a known source quickly</div>
+            <div style="font-size:13px; line-height:1.5; color:#6b6b6b; padding:15px 16px;">Guided connector flow</div>
+            <div style="font-size:13px; line-height:1.5; color:#444; padding:15px 16px;">Fewer manual configuration steps</div>
+            <div style="padding:15px 16px;"><span style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:#9a6b16; background:#fbf3e2; border:1px solid #ecdcb3; border-radius:100px; padding:4px 10px;">Medium</span></div>
+            <div style="font-size:13px; line-height:1.5; color:#444; padding:15px 16px;">Design</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; margin-top:14px; font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a;">
+      <span style="display:flex; align-items:center; gap:6px;"><span style="width:10px; height:10px; border-radius:2px; background:#b4472e; display:inline-block;"></span>Low</span>
+      <span style="display:flex; align-items:center; gap:6px;"><span style="width:10px; height:10px; border-radius:2px; background:#9a6b16; display:inline-block;"></span>Medium</span>
+      <span style="display:flex; align-items:center; gap:6px;"><span style="width:10px; height:10px; border-radius:2px; background:#46803e; display:inline-block;"></span>High</span>
+      <span style="color:#9a9a9a;">Owners map to the six functions: PM · Design · Eng · Sales · Marketing · Executives</span>
+    </div>
+    <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Gap and satisfaction audit: how designers and PMs evaluated feature support per little job, then scored opportunity for planning.</figcaption>
+  </figure>
+
+  <article class="body-copy" style="max-width:680px; margin:0 auto; padding:56px 24px 0;">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#46803e; border-top:2px solid #46803e; padding-top:14px; margin-bottom:24px;">05 · What changed</div>
+    <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; line-height:1.2; margin:0 0 12px;">What became possible</h2>
+    <p style="font-size:14px !important; color:#8a8a8a !important; margin-bottom:24px !important;">Research contribution and observed planning use, not a product roadmap commitment.</p>
+  </article>
+
+  <div style="max-width:820px; margin:0 auto; padding:0 24px;">
+    <div class="grid-3" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+      <div style="border-top:2px solid #46803e; padding-top:16px;"><div style="font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a; margin-bottom:8px;">01</div><p style="font-size:16px; line-height:1.5; color:#242424; margin:0;">Established a shared Data Management job narrative across Core and Observability.</p></div>
+      <div style="border-top:2px solid #46803e; padding-top:16px;"><div style="font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a; margin-bottom:8px;">02</div><p style="font-size:16px; line-height:1.5; color:#242424; margin:0;">Reframed unification as shared outcomes with appropriately forked workflows.</p></div>
+      <div style="border-top:2px solid #46803e; padding-top:16px;"><div style="font-family:'Space Mono',monospace; font-size:11px; color:#8a8a8a; margin-bottom:8px;">03</div><p style="font-size:16px; line-height:1.5; color:#242424; margin:0;">Created a repeatable path from research evidence to cross-functional planning.</p></div>
+    </div>
+  </div>
+
+  <figure style="max-width:900px; margin:32px auto 0; padding:0 24px;">
+    <div style="border:1px dashed #cfcfc9; border-radius:12px; overflow:hidden; aspect-ratio:16/8;"><image-slot fit="contain" id="jtbd-adoption" shape="rect" style="width:100%; height:100%;" placeholder="Adoption evidence: anonymized PRD excerpt, workshop output, or planning artifact using the JTBD job language"></image-slot></div>
+    <figcaption style="font-family:'Space Mono',monospace; font-size:12px; color:#9a9a9a; margin-top:12px;">Adoption in practice: planning artifacts and workshop output using the shared job language, anonymized for public portfolio.</figcaption>
+  </figure>
+
+  <article class="body-copy" style="max-width:680px; margin:0 auto; padding:56px 24px 0;">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#46803e; border-top:2px solid #46803e; padding-top:14px; margin-bottom:24px;">06 · Reflection</div>
+    <p style="margin-bottom:0;">Comparison, not assertion, made the unification strategy credible. If I repeated the program, I would introduce gap scoring earlier so teams could connect foundational research to planning sooner.</p>
+  </article>
+
+  <a href="Case-AI-Onboarding.dc.html" style="display:block; max-width:820px; margin:56px auto 0; padding:0 24px;">
+    <div class="next-case" style="border:1px solid #e6e6e6; border-radius:14px; padding:34px 40px; display:flex; justify-content:space-between; align-items:center;">
+      <div><div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8a8a8a; margin-bottom:8px;">Next case study</div><div style="font-family:'Newsreader',serif; font-size:28px;">AI &amp; Guided Onboarding</div><div style="font-size:14px; color:#8a8a8a; margin-top:6px;">The strategic work this foundation made possible</div></div>
+      <span style="font-family:'Newsreader',serif; font-size:36px; color:#46803e;">→</span>
+    </div>
+  </a>
+
+  <div class="footer" style="border-top:1px solid #e6e6e6; margin-top:64px; padding:26px 56px; display:flex; justify-content:space-between; font-size:13px; color:#8a8a8a;">
+    <a href="Home.dc.html">← Back to home</a><span>lingyigee@gmail.com · linkedin.com/in/lingyige</span>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { unlocked: (function(){ try { return sessionStorage.getItem('lg_site_unlocked') === '1'; } catch(e){ return false; } })(), pw: '', error: false };
+  submit(){
+    if (this.state.pw === 'cheers'){ try { sessionStorage.setItem('lg_site_unlocked','1'); } catch(e){} this.setState({ unlocked: true, error: false }); }
+    else { this.setState({ error: true, pw: '' }); }
+  }
+  renderVals(){
+    return {
+      locked: !this.state.unlocked,
+      pw: this.state.pw,
+      showError: this.state.error,
+      onPwInput: (e) => this.setState({ pw: e.target.value, error: false }),
+      onPwKey: (e) => { if (e.key === 'Enter') this.submit(); },
+      onSubmit: () => this.submit(),
+    };
+  }
+}
+</script>
+</body>
+</html>
